@@ -81,7 +81,7 @@ Este módulo gestiona el acceso a la cámara web del navegador mediante la API `
 | CAM-03 | Como usuario, quiero poder detener el análisis y apagar la cámara con un clic | Botón "Detener", libera el stream (`track.stop()`), oculta el video y detiene el loop de inferencia | **P0** |
 | CAM-04 | Como usuario, quiero poder espejear horizontalmente la vista de cámara (modo selfie) | Toggle de espejado configurable, aplicado con CSS `transform: scaleX(-1)` sobre el canvas | **P1** |
 
-📌 Issues GitHub: [CAM-01](#) · [CAM-02](#) · [CAM-03](#) · [CAM-04](#)
+📌 Issue GitHub: [Feat_1: Activación de cámara y captura de video](https://github.com/yearro/DrishtiPosture/issues/1)
 
 ---
 
@@ -96,7 +96,7 @@ Este módulo integra el modelo MediaPipe Pose de Google ejecutado en el navegado
 | POSE-03 | Como sistema, debo descartar landmarks con score de visibilidad < 0.5 para evitar falsos positivos | Landmarks con visibility < 0.5 marcados como `null`/`undefined`; los ángulos que dependen de ellos no se calculan | **P0** |
 | POSE-04 | Como sistema, debo ejecutar la inferencia en un Web Worker para mantener la UI a ≥ 25 FPS | El thread principal nunca bloquea por inferencia; comunicación vía `postMessage` con `OffscreenCanvas` o `ImageBitmap` | **P1** |
 
-📌 Issues GitHub: [POSE-01](#) · [POSE-02](#) · [POSE-03](#) · [POSE-04](#)
+📌 Issue GitHub: [Feat_2: Integración de MediaPipe Pose para estimación de landmarks](https://github.com/yearro/DrishtiPosture/issues/2)
 
 ---
 
@@ -111,7 +111,7 @@ Este módulo define el catálogo de asanas de yoga clásicas soportadas por el s
 | CAT-03 | Como usuario, quiero ver una imagen de referencia de la asana seleccionada junto a mi vista de cámara | Panel de referencia lado a lado (split view): imagen/ilustración de la asana a la izquierda, cámara a la derecha | **P1** |
 | CAT-04 | Como usuario, quiero filtrar el catálogo por nivel (Principiante, Intermedio, Avanzado) o por zona del cuerpo | Filtros en la UI de selección; las asanas se filtran en tiempo real sin recarga de página | **P1** |
 
-📌 Issues GitHub: [CAT-01](#) · [CAT-02](#) · [CAT-03](#) · [CAT-04](#)
+📌 Issue GitHub: [Feat_3: Catálogo de asanas y definición de ángulos de referencia](https://github.com/yearro/DrishtiPosture/issues/3)
 
 ---
 
@@ -125,7 +125,7 @@ Este módulo recibe los landmarks detectados por MediaPipe y calcula los ángulo
 | ANGLE-02 | Como sistema, debo calcular todos los ángulos relevantes para la asana activa en cada frame | Mapa de ángulos calculados por frame: `{ [jointName: string]: number \| null }` donde null si landmarks no visibles | **P0** |
 | ANGLE-03 | Como usuario, quiero ver los valores de ángulo en tiempo real sobre la vista de cámara | Valores numéricos en grados renderizados en el canvas junto al joint correspondiente, actualizados por frame | **P1** |
 
-📌 Issues GitHub: [ANGLE-01](#) · [ANGLE-02](#) · [ANGLE-03](#)
+📌 Issue GitHub: [Feat_4: Cálculo de ángulos articulares](https://github.com/yearro/DrishtiPosture/issues/4)
 
 ---
 
@@ -141,7 +141,7 @@ Este es el módulo central de retroalimentación. Compara los ángulos calculado
 | EVAL-04 | Como usuario, quiero que el feedback sea dinámico y desaparezca cuando corrijo la articulación | Las instrucciones del panel desaparecen en < 500ms cuando el ángulo entra al rango ideal; la conexión en el canvas cambia a verde | **P1** |
 | EVAL-05 | Como usuario, quiero un mensaje de felicitación cuando toda la postura esté correcta (score = 100%) | Overlay visual con animación de éxito cuando todas las articulaciones relevantes están en rango por ≥ 1.5 segundos consecutivos | **P2** |
 
-📌 Issues GitHub: [EVAL-01](#) · [EVAL-02](#) · [EVAL-03](#) · [EVAL-04](#) · [EVAL-05](#)
+📌 Issue GitHub: [Feat_5: Motor de evaluación y retroalimentación visual](https://github.com/yearro/DrishtiPosture/issues/5)
 
 ---
 
@@ -156,7 +156,7 @@ Este módulo define la experiencia de navegación: pantalla de bienvenida, selec
 | UI-03 | Como usuario, quiero un modo oscuro como predeterminado que no genere reflejo en el espacio donde practico | Tema oscuro por defecto; toggle de tema claro disponible en la UI | **P1** |
 | UI-04 | Como usuario, quiero ver claramente cuando la app no detecta ningún cuerpo en el frame | Mensaje "No se detecta ninguna persona en el encuadre" cuando `pose.score < 0.5` por más de 1 segundo | **P1** |
 
-📌 Issues GitHub: [UI-01](#) · [UI-02](#) · [UI-03](#) · [UI-04](#)
+📌 Issue GitHub: [Feat_6: Interfaz de usuario y experiencia](https://github.com/yearro/DrishtiPosture/issues/6)
 
 ---
 
