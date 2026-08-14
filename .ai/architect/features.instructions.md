@@ -44,8 +44,9 @@ Entrega la salida en formato **Markdown limpio y estructurado**, con la sintaxis
 - Completar el título de la incidencia con `Feat_{{ feature.priority }}: {{ Feature title }}` Ejemplo: `Feat_1: Crear usuario`
 - Completar la descripción con la descripción de la funcionalidad (Una frase corta, por ahora no desarrolles más).
 - Añadir una etiqueta para establecer su estado como: borrador-arquitecto
-- Añadir un enlace a la incidencia en la sección de funcionalidades del archivo [PRD](../../docs/PRD.md)
+- Añadir un enlace a la incidencia en la sección de funcionalidades del archivo [PRD](../../docs/PRD.md) siguiendo exactamente este formato: `📌 Issue GitHub: [Feat_{{ priority }}: {{ Feature title }}]({{ issue_url }})`
 - Añadir un enlace a este PRD en el archivo README.md del repositorio.
+- Utilizar el formato [Feature Template](./templates/features.template.md) para documentar la incidencia
 - Confirmar los cambios utilizando el siguiente formato convencional de mensaje de confirmación:
 - `docs: PRD para {{ nombre del proyecto }}`
 ---
