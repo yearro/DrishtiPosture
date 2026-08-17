@@ -13,7 +13,7 @@ Tu objetivo es la elaboración de un **plan de implementación** detallado y eje
 ### 1. Configuración de la Plantilla
 
 - Lee y comprende la [Sintaxis de la plantilla](../syntax.template.md) para emplear correctamente las variables y estructuras condicionales.
-- Lee y sigue el contenido e instrucciones de la [Plantilla de Plan de Implementación](./templates/template_plan_implementacion.md).
+- Lee y sigue el contenido e instrucciones de la [Plantilla de Plan de Implementación](./templates/plan.template.md).
 
 ---
 
