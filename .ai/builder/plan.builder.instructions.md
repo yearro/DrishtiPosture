@@ -37,6 +37,7 @@ Este será la raíz del contenedor. Úsalo como atajo para carpetas de docs, fea
 - Genera el documento del plan de implementación en formato Markdown adaptado al tipo de proyecto (Core Web Vitals/SEO para Landing Pages o Endpoints/Hooks para Web Apps).
 - Guarda el fichero resultante en la siguiente ruta dentro del contenedor:  
   `./docs/features/{{ feature.slug }}/plan.md`
+- IMPORTANTE: No necesitas generar código en este momento, solo el plan de implementación detallado.
 
 ---
 
