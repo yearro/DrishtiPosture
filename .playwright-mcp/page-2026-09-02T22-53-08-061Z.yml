@@ -1,0 +1,105 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - link "DrishtiPosture Inicio" [ref=e5] [cursor=pointer]:
+      - /url: "#"
+      - generic [ref=e6]: spa
+      - generic [ref=e7]: DrishtiPosture
+    - navigation "Navegación principal" [ref=e8]:
+      - link "Home" [ref=e9] [cursor=pointer]:
+        - /url: "#"
+      - link "New Scan" [ref=e10] [cursor=pointer]:
+        - /url: "#"
+      - link "History" [ref=e11] [cursor=pointer]:
+        - /url: "#"
+      - link "Profile" [ref=e12] [cursor=pointer]:
+        - /url: "#"
+    - generic [ref=e13]:
+      - switch "Cambiar a modo claro" [ref=e14] [cursor=pointer]:
+        - generic [ref=e15]: dark_mode
+        - generic [ref=e16]: Oscuro
+      - button "Perfil de usuario" [ref=e17] [cursor=pointer]:
+        - generic [ref=e18]: person
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - generic:
+        - img "Serene yoga studio background"
+      - generic [ref=e21]:
+        - generic [ref=e22]: Trusted Tranquility in Motion
+        - heading "Master Your Practice with Drishti" [level=1] [ref=e23]
+        - paragraph [ref=e24]: Experience the perfect harmony of ancient wisdom and modern precision. Real-time AI posture analysis designed to elevate your yoga journey with clarity and peace.
+        - button "Start Your Scan arrow_forward" [ref=e25] [cursor=pointer]:
+          - generic [ref=e26]: Start Your Scan
+          - generic [ref=e27]: arrow_forward
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - img "Yoga pose analysis with real-time AI skeleton tracking" [ref=e30]
+        - generic [ref=e33]:
+          - generic [ref=e34]: Alignment Confidence
+          - generic [ref=e35]: 98% Optimal
+      - generic [ref=e36]:
+        - generic [ref=e37]: WHAT IS DRISHTIPOSTURE?
+        - heading "AI-Powered Correction, Rooted in Mindfulness." [level=2] [ref=e40]
+        - paragraph [ref=e41]: DrishtiPosture acts as your personal, invisible guide. Utilizing advanced computer vision, it gently analyzes your asanas in real-time, offering technical accuracy without disrupting the meditative flow of your practice.
+        - paragraph [ref=e42]: We believe that true alignment is both physical and mental. Our technology is designed to fade into the background, providing insights only when necessary to prevent injury and deepen your stretch.
+        - generic [ref=e43]:
+          - generic [ref=e44]:
+            - generic [ref=e45]: visibility
+            - generic [ref=e46]: Real-Time Feedback
+          - generic [ref=e47]:
+            - generic [ref=e48]: schedule
+            - generic [ref=e49]: Session History Tracking
+    - generic [ref=e50]:
+      - generic [ref=e51]:
+        - heading "The Dual Path to Wellness" [level=2] [ref=e52]
+        - paragraph [ref=e53]: Yoga is a discipline of holistic health. DrishtiPosture ensures you maximize both the physical resilience and mental clarity that the practice offers.
+      - generic [ref=e54]:
+        - article [ref=e55]:
+          - generic [ref=e56]: spa
+          - heading "Mental Tranquility" [level=3] [ref=e57]
+          - paragraph [ref=e58]: Reduce stress and anxiety through mindful movement. Our non-intrusive feedback allows you to stay present in every breath.
+        - article [ref=e59]:
+          - generic [ref=e60]: fitness_center
+          - heading "Physical Resilience" [level=3] [ref=e61]
+          - paragraph [ref=e62]: Build core strength and flexibility. Correct alignment ensures you are engaging the right muscle groups without strain.
+        - article [ref=e63]:
+          - generic [ref=e64]: health_and_safety
+          - heading "Injury Prevention" [level=3] [ref=e65]
+          - paragraph [ref=e66]: Micro-adjustments matter. Prevent long-term joint wear and tear by perfecting your foundational poses early on.
+    - generic [ref=e67]:
+      - generic: PRECISION
+      - generic [ref=e68]:
+        - heading "The Science of Precision Alignment" [level=2] [ref=e69]
+        - paragraph [ref=e70]: Why does exact posture matter? Even a slight deviation in a downward dog can shift load from your muscles to your vulnerable joints. DrishtiPosture's proprietary spatial mapping identifies structural imbalances in milliseconds.
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic [ref=e73]: Posture Improvement Trend
+            - generic [ref=e74]: "- 24%"
+          - generic [ref=e75]:
+            - generic [ref=e76]: Wk 1
+            - generic [ref=e79]: Wk 2
+            - generic [ref=e82]: Wk 3
+            - generic [ref=e85]: Wk 4
+            - generic [ref=e88]: Wk 5
+      - generic [ref=e91]:
+        - img "3D skeleton spatial mapping mesh preview" [ref=e93]
+        - img "Overhead yoga mat view with ring alignment overlay" [ref=e95]
+    - generic [ref=e97]:
+      - heading "Ready to elevate your flow?" [level=2] [ref=e98]
+      - paragraph [ref=e99]: Join thousands of practitioners who have refined their technique and deepened their meditation with DrishtiPosture.
+      - button "Explore The App" [ref=e100] [cursor=pointer]
+  - contentinfo [ref=e101]:
+    - generic [ref=e102]:
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]: spa
+            - generic [ref=e107]: DrishtiPosture
+          - generic [ref=e108]: Trusted Tranquility in Motion
+        - navigation "Enlaces secundarios del pie de página" [ref=e109]:
+          - link "Privacy" [ref=e110] [cursor=pointer]:
+            - /url: "#privacy"
+          - link "Terms" [ref=e111] [cursor=pointer]:
+            - /url: "#terms"
+          - link "Contact" [ref=e112] [cursor=pointer]:
+            - /url: "#contact"
+      - paragraph [ref=e114]: © 2024 DrishtiPosture. All rights reserved.
