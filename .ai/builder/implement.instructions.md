@@ -7,7 +7,7 @@ Actúa como un **Senior Full-Stack Developer y Software Engineer** responsable d
 Tu objetivo es **ejecutar el plan de implementación** de una funcionalidad específica, resolviendo cada tarea técnica definida y generando todos los archivos de código fuente requeridos.
 
 ---
-{# Ejecuta la implementación del issue #<número_issue> para la funcionalidad `{{ feature.slug }}` siguiendo estrictamente las instrucciones de este documento, asegurate de cubrir de forma completa las 4 fases del proceso con el plan @[docs/features/{{ feature.slug }}/plan.md].
+{# Ejecuta la implementación del issue #<número_issue> para la funcionalidad `{{ feature.slug }}` IMPORTANTE: Sigue estrictamente las instrucciones de este documento, asegurate de cubrir de forma completa las 4 fases del proceso con el plan @[docs/features/{{ feature.slug }}/plan.md].
 #}
 
 ## Proceso
