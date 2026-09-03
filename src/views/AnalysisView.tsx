@@ -1,11 +1,23 @@
-import React, { useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { NoPersonDetectedBanner } from '../components/ui/NoPersonDetectedBanner';
 import { ASANA_CATALOG } from '../data/asanaData';
+import { useCameraStream } from '../hooks/useCameraStream';
+import { CameraView } from '../components/camera/CameraView';
+import { CameraControls } from '../components/camera/CameraControls';
+import { CameraErrorBanner } from '../components/camera/CameraErrorBanner';
 
-export const AnalysisView: React.FC = () => {
+export function AnalysisView() {
   const { state, setView, dispatch } = useAppContext();
-  const [cameraActive, setCameraActive] = useState<boolean>(true);
+  const {
+    cameraState,
+    stream,
+    error,
+    mirrorMode,
+    startCamera,
+    stopCamera,
+    toggleMirror,
+  } = useCameraStream();
+
   const activeAsana = state.activeAsana || ASANA_CATALOG[0];
 
   const handleToggleNoPerson = () => {
@@ -30,6 +42,13 @@ export const AnalysisView: React.FC = () => {
     >
       <NoPersonDetectedBanner />
 
+      {error && (
+        <CameraErrorBanner
+          error={error}
+          onRetry={startCamera}
+        />
+      )}
+
       {/* Header Status Bar */}
       <div
         style={{
@@ -48,9 +67,9 @@ export const AnalysisView: React.FC = () => {
                 width: '10px',
                 height: '10px',
                 borderRadius: '50%',
-                backgroundColor: state.noPersonDetected ? 'var(--color-error)' : 'var(--color-tertiary)',
-                boxShadow: '0 0 10px var(--color-tertiary)',
-                animation: 'pulseGlow 2s infinite'
+                backgroundColor: cameraState === 'active' ? 'var(--color-tertiary)' : 'var(--color-error)',
+                boxShadow: cameraState === 'active' ? '0 0 10px var(--color-tertiary)' : 'none',
+                animation: cameraState === 'active' ? 'pulseGlow 2s infinite' : 'none'
               }}
             />
             <span className="font-label-sm" style={{ color: 'var(--color-primary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
@@ -213,7 +232,7 @@ export const AnalysisView: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Panel: Camera & Skeleton Overlay */}
+        {/* Right Panel: Real Camera Feed Component */}
         <div
           style={{
             position: 'relative',
@@ -228,132 +247,22 @@ export const AnalysisView: React.FC = () => {
             gridColumn: 'span 1'
           }}
         >
-          {/* Background Feed (Simulated AI Scan) */}
-          <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              backgroundImage: `url(${activeAsana.imageUrl})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: cameraActive ? 'none' : 'grayscale(1) opacity(0.2)',
-              transition: 'all var(--transition-normal)'
-            }}
+          <div style={{ flexGrow: 1, position: 'relative', minHeight: '440px' }}>
+            <CameraView
+              stream={stream}
+              mirrorMode={mirrorMode}
+            />
+          </div>
+
+          <CameraControls
+            cameraState={cameraState}
+            mirrorMode={mirrorMode}
+            onStartCamera={startCamera}
+            onStopCamera={stopCamera}
+            onToggleMirror={toggleMirror}
           />
-
-          {/* Scanning Line Animation */}
-          {cameraActive && <div className="animate-scan" style={{ position: 'absolute', left: 0, right: 0, height: '2px', backgroundColor: 'var(--color-tertiary)', boxShadow: '0 0 16px var(--color-tertiary)' }} />}
-
-          {/* SVG Skeletal Overlay */}
-          {cameraActive && (
-            <svg
-              style={{
-                position: 'absolute',
-                inset: 0,
-                width: '100%',
-                height: '100%',
-                pointerEvents: 'none',
-                filter: 'drop-shadow(0 0 8px rgba(0, 88, 188, 0.7))'
-              }}
-              viewBox="0 0 800 600"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              {/* Connecting Lines */}
-              <path d="M 400 150 L 400 250 L 350 250 L 320 350 L 330 450 M 400 250 L 450 250 L 480 320 L 460 400 M 400 250 L 380 400 L 380 550 M 400 250 L 420 400 L 450 480 L 400 480" fill="none" stroke="#388bfd" strokeWidth="2.5" strokeDasharray="4 4" />
-              {/* Joints */}
-              <circle cx="400" cy="150" r="7" fill="#0058bc" />
-              <circle cx="400" cy="250" r="6" fill="#0058bc" />
-              <circle cx="350" cy="250" r="5" fill="#0058bc" />
-              <circle cx="450" cy="250" r="5" fill="#0058bc" />
-              <circle cx="320" cy="350" r="5" fill="#0058bc" />
-              <circle cx="480" cy="320" r="5" fill="#0058bc" />
-              <circle cx="380" cy="400" r="6" fill="#0058bc" />
-              <circle cx="420" cy="400" r="6" fill="#0058bc" />
-              <circle cx="380" cy="550" r="5" fill="#0058bc" />
-              <circle cx="450" cy="480" r="5" fill="#0058bc" />
-            </svg>
-          )}
-
-          {/* Camera Feed Top Overlay */}
-          <div style={{ position: 'relative', zIndex: 10, padding: 'var(--space-md)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span
-              style={{
-                padding: '6px 14px',
-                borderRadius: 'var(--radius-full)',
-                backgroundColor: 'rgba(0, 0, 0, 0.65)',
-                color: '#ffffff',
-                fontSize: '12px',
-                fontWeight: 600,
-                backdropFilter: 'blur(8px)',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px'
-              }}
-            >
-              <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: cameraActive ? '#22c55e' : '#ef4444' }} />
-              {cameraActive ? 'Cámara Activa (IA Scannning)' : 'Cámara Desactivada'}
-            </span>
-          </div>
-
-          {/* Controls Bar Bottom */}
-          <div
-            style={{
-              position: 'relative',
-              zIndex: 10,
-              padding: 'var(--space-md)',
-              backgroundColor: 'rgba(0, 0, 0, 0.75)',
-              backdropFilter: 'blur(12px)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between'
-            }}
-          >
-            <div style={{ display: 'flex', gap: '12px' }}>
-              <button
-                type="button"
-                onClick={() => setCameraActive(!cameraActive)}
-                style={{
-                  width: '44px',
-                  height: '44px',
-                  borderRadius: '50%',
-                  backgroundColor: cameraActive ? 'var(--color-primary)' : '#374151',
-                  color: '#ffffff',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                <span className="material-symbols-outlined">{cameraActive ? 'videocam' : 'videocam_off'}</span>
-              </button>
-            </div>
-
-            <button
-              type="button"
-              onClick={() => setView('welcome')}
-              style={{
-                padding: '10px 24px',
-                borderRadius: 'var(--radius-full)',
-                backgroundColor: 'var(--color-error)',
-                color: '#ffffff',
-                fontWeight: 600,
-                fontSize: '14px',
-                border: 'none',
-                cursor: 'pointer',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px'
-              }}
-            >
-              <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>
-                stop_circle
-              </span>
-              <span>Finalizar Sesión</span>
-            </button>
-          </div>
         </div>
       </div>
     </main>
   );
-};
+}

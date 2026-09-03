@@ -1,0 +1,115 @@
+.controlsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md, 16px);
+  padding: var(--space-md, 16px);
+  background-color: rgba(10, 11, 13, 0.85);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-outline-variant, rgba(255, 255, 255, 0.1));
+  border-bottom-left-radius: var(--radius-xl, 16px);
+  border-bottom-right-radius: var(--radius-xl, 16px);
+}
+
+.leftGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm, 12px);
+}
+
+.actionButton {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 10px 20px;
+  border-radius: var(--radius-full, 9999px);
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.startButton {
+  background-color: var(--color-primary, #0058bc);
+  color: #ffffff;
+}
+
+.startButton:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.startButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stopButton {
+  background-color: var(--color-error, #ba1a1a);
+  color: #ffffff;
+}
+
+.stopButton:hover {
+  opacity: 0.9;
+}
+
+.mirrorToggle {
+  min-width: 48px;
+  min-height: 48px;
+  padding: 8px 16px;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--color-outline-variant, rgba(255, 255, 255, 0.2));
+  background-color: var(--color-surface-container, rgba(255, 255, 255, 0.08));
+  color: var(--color-on-surface, #ffffff);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mirrorToggleActive {
+  background-color: rgba(0, 88, 188, 0.2);
+  border-color: var(--color-primary, #0058bc);
+  color: var(--color-tertiary, #388bfd);
+}
+
+.statusIndicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-on-surface-variant, #999);
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.dotActive {
+  background-color: #22c55e;
+  box-shadow: 0 0 8px #22c55e;
+}
+
+.dotInactive {
+  background-color: #ef4444;
+}
+
+.dotLoading {
+  background-color: #f59e0b;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
