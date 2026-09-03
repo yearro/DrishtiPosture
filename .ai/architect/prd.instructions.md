@@ -42,7 +42,7 @@ Adapta cada sección de la plantilla al tipo de aplicación detectado, estructur
 - Usa git para conocer el nombre y url del repositorio en GitHub
 - Completar el título de la incidencia con `Feat_{{ feature.priority }}: {{ Feature title }}` Ejemplo: `Feat_1: Crear usuario`
 - Completar la descripción con la descripción de la funcionalidad (Una frase corta, por ahora no desarrolles más).
-- Añadir una etiqueta para establecer su estado como: borrador-arquitecto
+- Añadir una etiqueta para establecer su estado como: 'draft-architect'
 - Añadir un enlace a la incidencia en la sección de funcionalidades del archivo [PRD](../../docs/PRD.md)
 - Añadir un enlace a este PRD en el archivo README.md del repositorio.
 - Confirmar los cambios utilizando el siguiente formato convencional de mensaje de confirmación:
