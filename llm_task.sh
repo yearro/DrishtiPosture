@@ -147,7 +147,7 @@ fi
 # OpenAI互換エンドポイントへリクエスト
 # ================================================================
 
-RESPONSE=$(curl -s --max-time 30 \
+RESPONSE=$(curl -s --max-time 600 \
   "${BASE_URL}/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "${AUTH_HEADER}" \
@@ -174,14 +174,22 @@ RESPONSE=$(curl -s --max-time 30 \
 if command -v python3 &>/dev/null; then
   echo "$RESPONSE" | python3 -c "
 import sys, json
-data = json.load(sys.stdin)
-if 'choices' in data and len(data['choices']) > 0:
-    print(data['choices'][0]['message']['content'])
-elif 'detail' in data:
-    print('❌ Error:', data['detail'], file=sys.stderr)
+raw = sys.stdin.read().strip()
+if not raw:
+    print('❌ Error: Respuesta vacía de la API (posible timeout o error de conexión).', file=sys.stderr)
     sys.exit(1)
-else:
-    print('❌ Response Error:', data, file=sys.stderr)
+try:
+    data = json.loads(raw)
+    if 'choices' in data and len(data['choices']) > 0:
+        print(data['choices'][0]['message']['content'])
+    elif 'detail' in data:
+        print('❌ Error:', data['detail'], file=sys.stderr)
+        sys.exit(1)
+    else:
+        print('❌ Response Error:', data, file=sys.stderr)
+        sys.exit(1)
+except Exception as e:
+    print(f'❌ Error al decodificar JSON: {e}\nRespuesta recibida: {raw}', file=sys.stderr)
     sys.exit(1)
 "
 elif command -v jq &>/dev/null; then
