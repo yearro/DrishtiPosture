@@ -12,7 +12,7 @@ Tu objetivo es diseñar e implementar **tests unitarios exhaustivos** para la l�
 
 ### 1. Recopilación de Información
 
-- Utiliza las herramientas de **GitHub MCP** para encontrar la funcionalidad en estado `builder-implemented` (o la especificada en el contexto).
+- Utiliza las herramientas de **GitHub MCP** para encontrar la funcionalidad en estado `builder-done` (o la especificada en el contexto). Cambia el estado a `craftsman-testing` al iniciar. Consulta el flujo completo en [LIFECYCLE.md](../LIFECYCLE.md).
 - Lee la incidencia de GitHub y sus comentarios para comprender la lógica implementada, contratos de datos y casos límite.
 - Analiza el código fuente para identificar:
   - Funciones puras, algoritmos y reglas de negocio.
@@ -60,3 +60,26 @@ Independientemente del lenguaje utilizado, cada test debe seguir de forma estric
 
     // 3. Assert (Verificar)
     Comprobar mediante aserciones nativas que el resultado devuelto o el estado modificado es el esperado.
+```
+
+---
+
+### 5. Seguimiento y GitHub MCP
+
+- Utiliza las herramientas de **GitHub MCP** para actualizar el estado de la incidencia:
+  - Cambia el estado a `craftsman-testing` al **iniciar** la escritura de tests.
+  - Cambia el estado a `craftsman-tested` al **completar** todos los tests y verificar cobertura.
+  - Publica un **comentario** en la incidencia con el resumen de cobertura: archivos testeados, número de tests escritos y resultado de la ejecución (`pass/fail`).
+- Confirma los cambios utilizando el formato convencional de mensaje de confirmación:
+  - `test: Tests unitarios para {{ feature.slug }} #<issue-number>`
+
+---
+
+## Criterios de Calidad
+
+- **Cobertura Mínima:** Las funciones de lógica de negocio crítica deben alcanzar al menos **80% de cobertura de ramas** (`branch coverage`).
+- **Independencia Total:** Cada test es completamente independiente y puede ejecutarse en cualquier orden sin efectos secundarios.
+- **Nomenclatura Descriptiva:** El nombre del test describe el escenario exacto que valida, sin abreviaciones. Formato recomendado: `"should [comportamiento esperado] when [condición]"`.
+- **Sin Lógica Condicional en Tests:** Prohibido usar `if/else`, `try/catch` (excepto para probar excepciones) o bucles dentro del cuerpo del test.
+- **Datos Realistas del Dominio:** Los valores de prueba deben ser representativos del dominio del proyecto, no genéricos (`"test123"`, `0`, `"foo"`).
+- **Seguridad:** Prohibido incluir credenciales reales, tokens o claves de API en los fixtures o datos de prueba. Usar siempre placeholders (`FAKE_API_KEY`, `TEST_TOKEN`).

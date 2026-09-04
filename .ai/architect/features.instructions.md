@@ -37,18 +37,18 @@ Para cada funcionalidad identificada, aplica la estructura de `[Ruta_o_Nombre_de
 #### **Paso 4: Formato y Entrega para Integración**
 Entrega la salida en formato **Markdown limpio y estructurado**, con la sintaxis Gherkin dentro de bloques de código informados, listo para ser copiado/pegado o anexado a la Sección 4 del PRD.
 
-### **Paso 5: **Seguimiento**
+### **Paso 5: Seguimiento**
 
 - Utilizar las herramientas de MCP para crear incidencias de GitHub para cada funcionalidad.
 - Usa git para conocer el nombre y url del repositorio en GitHub
 - Completar el título de la incidencia con `Feat_{{ feature.priority }}: {{ Feature title }}` Ejemplo: `Feat_1: Crear usuario`
 - Completar la descripción con la descripción de la funcionalidad (Una frase corta, por ahora no desarrolles más).
-- Añadir una etiqueta para establecer su estado como: 'draft-architect'
+- Añadir la etiqueta `draft-architect` al crear el issue. Al finalizar la documentación Gherkin, reemplazarla con `architect-done`. Consulta el flujo completo en [LIFECYCLE.md](../LIFECYCLE.md).
 - Añadir un enlace a la incidencia en la sección de funcionalidades del archivo [PRD](../../docs/PRD.md) siguiendo exactamente este formato: `📌 Issue GitHub: [Feat_{{ priority }}: {{ Feature title }}]({{ issue_url }})`
 - Añadir un enlace a este PRD en el archivo README.md del repositorio.
 - Utilizar el formato [Feature Template](./templates/features.template.md) para documentar la incidencia
 - Confirmar los cambios utilizando el siguiente formato convencional de mensaje de confirmación:
-- `docs: PRD para {{ nombre del proyecto }}`
+  - `docs: Escenarios Gherkin para {{ feature.slug }} #<issue-number>`
 ---
 
 ### INSTRUCCIÓN DE INICIO:

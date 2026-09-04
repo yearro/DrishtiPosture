@@ -33,4 +33,4 @@ Tu objetivo es guiarme de forma interactiva para definir el modelo de datos y el
 ---
 
 ### INSTRUCCIÓN DE INICIO:
-Por favor, analiza el archivo de especificación `[Nombre_o_Ruta_Especificacion.md]`, identifica el nombre del proyecto, extrae las entidades primarias sugeridas y formula la **primera pregunta cerrada** con su opción predefinida para comenzar.
+Por favor, analiza el archivo [PRD.md](../../docs/PRD.md) ya generado por el Architect, extrae las entidades del dominio descritas en las secciones de Requisitos Funcionales y Arquitectura Técnica, y formula la **primera pregunta cerrada con su opción predefinida** para comenzar la definición interactiva del modelo de dominio.

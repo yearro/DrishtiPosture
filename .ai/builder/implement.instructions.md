@@ -51,8 +51,13 @@ Sigue el desglose de tareas (**Task Breakdown**) del plan en orden secuencial:
 ### 4. Seguimiento, GitHub MCP y Confirmación
 
 - Utiliza las herramientas de **GitHub MCP** para actualizar la incidencia correspondiente:
-  - Cambia el estado de la incidencia de la funcionalidad a `closed`.
-  - Actualiza la label del la incidencia a 'builder-done'
+  - Cambia el estado de la incidencia a `builder-done`. **No** cierres el issue — eso es responsabilidad del Craftsman al finalizar las pruebas y documentación. Consulta el flujo en [LIFECYCLE.md](../LIFECYCLE.md).
+  - Actualiza la etiqueta de la incidencia a `builder-done`.
   - Añade un comentario detallando el resumen de cambios, archivos creados/modificados y el estado de las pruebas.
 - Confirma los cambios realizados en el repositorio utilizando el formato convencional de mensaje de confirmación:
   - `feat: Implementación de la funcionalidad {{ feature.slug }} #<issue-number>`
+
+---
+
+### INSTRUCCIÓN DE INICIO:
+Lee el plan de implementación en `docs/features/{{ feature.slug }}/plan.md`, revisa el issue correspondiente en GitHub y comienza la implementación siguiendo el Task Breakdown de la **Sección 3** del plan en orden secuencial.

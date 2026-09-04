@@ -27,7 +27,7 @@ Este será la raíz del contenedor. Úsalo como atajo para carpetas de docs, fea
 - Estas instrucciones se aplican a **una sola funcionalidad o sección a la vez**.
 - Para obtener la información de la funcionalidad:
   - Utiliza las herramientas de **GitHub MCP** para encontrar la incidencia (Issue) correspondiente a la funcionalidad.
-  - Selecciona la primera incidencia que se encuentre en estado `"definido"` (o la especificada en el contexto actual).
+  - Selecciona la primera incidencia que se encuentre en estado `"architect-done"` (o la especificada en el contexto actual). Consulta el flujo completo en [LIFECYCLE.md](../LIFECYCLE.md).
   - Consulta el [PRD](../../docs/PRD.md) y el modelo de datos [DOMAIN.md](../../docs/DOMAIN.md) para alinear la arquitectura, el stack y los objetivos de ingeniería.
 
 ---

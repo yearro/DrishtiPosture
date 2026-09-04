@@ -36,14 +36,12 @@ Adapta cada sección de la plantilla al tipo de aplicación detectado, estructur
 2. Llena todas las tablas de Requisitos Funcionales (priorizados en P0, P1, P2), Métricas KPI, Matriz de Riesgos y Roadmap.
 3. Genera la salida completa estructurada directamente en formato **Markdown limpio**.
 
-#### **Paso 4: **Seguimiento**
+#### **Paso 4: Entrega y Confirmación**
 
-- Utilizar las herramientas de MCP para crear incidencias de GitHub para cada funcionalidad.
-- Usa git para conocer el nombre y url del repositorio en GitHub
-- Completar el título de la incidencia con `Feat_{{ feature.priority }}: {{ Feature title }}` Ejemplo: `Feat_1: Crear usuario`
-- Completar la descripción con la descripción de la funcionalidad (Una frase corta, por ahora no desarrolles más).
-- Añadir una etiqueta para establecer su estado como: 'draft-architect'
-- Añadir un enlace a la incidencia en la sección de funcionalidades del archivo [PRD](../../docs/PRD.md)
-- Añadir un enlace a este PRD en el archivo README.md del repositorio.
-- Confirmar los cambios utilizando el siguiente formato convencional de mensaje de confirmación:
-- `docs: PRD para {{ nombre del proyecto }}`
+> [!IMPORTANT]
+> La creación de issues de GitHub por funcionalidad es responsabilidad exclusiva del agente **Architect → Features** ([features.instructions.md](./features.instructions.md)). Este paso **no** debe crear issues.
+
+- Guarda el PRD generado en `docs/PRD.md`.
+- Añade o actualiza el enlace al PRD en el archivo `README.md` del repositorio.
+- Confirma los cambios utilizando el siguiente formato convencional de mensaje de confirmación:
+  - `docs: PRD para {{ nombre del proyecto }}`
