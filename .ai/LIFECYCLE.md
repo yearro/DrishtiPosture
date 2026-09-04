@@ -1,71 +1,62 @@
-# Ciclo de Vida de Issues (GitHub Labels)
+# Ciclo de Vida de Estados de GitHub Issues (AIDD)
 
-Este documento define el orden y significado de todas las etiquetas de estado que se asignan a los issues de GitHub durante el ciclo de vida de una funcionalidad en el sistema AIDD.
-
----
-
-## Flujo de Estados
-
-```
-draft-architect → architect-done → builder-planned → builder-implementing → builder-done → craftsman-testing → craftsman-tested → craftsman-documented → closed
-```
+Este documento define el ciclo de vida oficial y las etiquetas de estado de **GitHub Issues** dentro del desarrollo guiado por IA (AIDD - AI-Driven Development).
 
 ---
 
-## Descripción de Etiquetas
+## Diagrama de Transición de Estados
 
-| Etiqueta | Fase | Responsable | Descripción |
+```
+[Inicio]
+   │
+   ▼
+draft-architect
+   │ (Escenarios Gherkin redactados)
+   ▼
+architect-done
+   │ (Plan de implementación generado)
+   ▼
+builder-planned
+   │ (Inicio de codificación)
+   ▼
+builder-implementing
+   │ (Código fuente e implementación listos)
+   ▼
+builder-done
+   │ (Inicio de desarrollo de tests)
+   ▼
+craftsman-testing
+   │ (Pruebas unitarias ejecutadas con éxito)
+   ▼
+craftsman-tested
+   │ (Documentación técnica y STRUCTURE.md)
+   ▼
+craftsman-documented
+   │ (Cierre definitivo de la incidencia)
+   ▼
+closed
+```
+
+---
+
+## Definición de Estados y Agentes Responsables
+
+| Estado | Agente Responsable | Descripción de la Fase | Salida Requerida para Transición |
 |---|---|---|---|
-| `draft-architect` | Architect | Architect | Issue creado con descripción inicial. El Architect está trabajando en la especificación Gherkin y el plan de dominio. |
-| `architect-done` | Architect | Architect | La especificación BDD está completa y documentada en el issue. Listo para planificación por el Builder. |
-| `builder-planned` | Builder | Builder | El plan de implementación `docs/features/{{ slug }}/plan.md` ha sido generado y vinculado al issue. |
-| `builder-implementing` | Builder | Builder | El Builder está codificando activamente la funcionalidad. El plan está en ejecución. |
-| `builder-done` | Builder | Builder | La implementación está completa, la compilación pasa sin errores y las pruebas unitarias iniciales están en verde. |
-| `craftsman-testing` | Craftsman | Craftsman | El Craftsman está escribiendo los tests unitarios de cobertura completa. |
-| `craftsman-tested` | Craftsman | Craftsman | Todos los tests unitarios están escritos, pasan y la cobertura cumple el umbral mínimo definido (≥ 80%). |
-| `craftsman-documented` | Craftsman | Craftsman | La documentación técnica (`STRUCTURE.md`, docstrings, contratos de API) está completa y sincronizada. |
-| `closed` | — | Cualquiera | La funcionalidad está completamente entregada, documentada y en producción. |
+| `draft-architect` | **Architect → Features** | Redacción inicial del issue de funcionalidad. | Borrador con user story y escenarios preliminares. |
+| `architect-done` | **Architect → Features** | Especificación Gherkin/BDD y criterios de aceptación listos. | Issue actualizado con plantilla Gherkin completa y enlace en `PRD.md`. |
+| `builder-planned` | **Builder → Plan** | Plan de implementación diseñado y revisado. | Archivo `docs/features/{{ feature.slug }}/plan.md` creado y enlazado. |
+| `builder-implementing` | **Builder → Implement** | Ejecución activa del código fuente y componentes. | Código fuente en `src/` en proceso de desarrollo. |
+| `builder-done` | **Builder → Implement** | Código fuente e implementación de UI/lógica completada. | Código en `src/` listo, sin errores de compilación (`tsc --noEmit`). |
+| `craftsman-testing` | **Craftsman → Test** | Desarrollo y ejecución de pruebas unitarias nativas. | Tests creados en la estructura del proyecto. |
+| `craftsman-tested` | **Craftsman → Test** | Tests finalizados con cobertura suficiente (≥80% branch coverage). | Comentario en GitHub Issue con resumen de ejecución de pruebas. |
+| `craftsman-documented` | **Craftsman → Document** | Actualización de documentación técnica y arquitectura. | Actualización de `docs/STRUCTURE.md` o JSDoc. |
+| `closed` | **Lead / Automation** | Cierre formal de la incidencia. | Issue cerrado (`closes #<issue-number>`). |
 
 ---
 
-## Transiciones Válidas
+## Reglas de Transición de Etiquetas
 
-Cada agente es responsable de actualizar la etiqueta al inicio y al cierre de su trabajo:
-
-### Architect
-```
-Inicio del trabajo  → Añade: draft-architect
-Al completar specs  → Reemplaza con: architect-done
-```
-
-### Builder (Planificador)
-```
-Toma el issue       → Busca: architect-done
-Al generar el plan  → Reemplaza con: builder-planned
-```
-
-### Builder (Ejecutor / Implementador)
-```
-Inicio de código    → Reemplaza con: builder-implementing
-Al completar código → Reemplaza con: builder-done
-```
-
-### Craftsman (Tester)
-```
-Inicio de tests     → Reemplaza con: craftsman-testing
-Al completar tests  → Reemplaza con: craftsman-tested
-```
-
-### Craftsman (Documentador)
-```
-Inicio de docs      → (mantiene craftsman-tested, añade comentario)
-Al completar docs   → Reemplaza con: craftsman-documented → cierra issue
-```
-
----
-
-## Notas
-
-- Solo debe existir **una etiqueta de estado** activa por issue en cada momento. Al asignar una nueva, siempre remover la anterior.
-- La etiqueta `draft-architect` es la única que el Architect crea directamente desde GitHub MCP al crear el issue.
-- Las demás etiquetas deben existir previamente en el repositorio. Crearlas con `gh label create` si no existen.
+1. **Unicidad de Estado:** Un issue debe tener **exactamente una etiqueta de estado** activa a la vez. Al aplicar una nueva etiqueta de la máquina de estados, debe eliminarse la etiqueta anterior.
+2. **Sin Saltos de Fase:** Ningún agente debe mover un issue a un estado sin haber completado los requisitos de la fase previa.
+3. **Cierre de Incidencias:** Únicamente el Craftsman o el responsable de QA debe cerrar el issue tras completar la prueba y documentación (`craftsman-documented` ➔ `closed`).

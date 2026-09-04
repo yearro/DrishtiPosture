@@ -2,7 +2,7 @@
 
 Este documento describe el sistema de desarrollo guiado por IA del proyecto. Define los roles, documentos de entrada, instrucciones y artefactos de salida para cada fase del ciclo de vida de una funcionalidad.
 
-> Para el ciclo de vida de estados de issues en GitHub, consulta [LIFECYCLE.md](./LIFECYCLE.md).
+> Para consultar el flujo formal y la máquina de estados de GitHub Issues, lee [LIFECYCLE.md](./LIFECYCLE.md).
 
 ---
 
@@ -22,7 +22,7 @@ Responsable de definir el dominio del problema, el modelo de datos, los requisit
 ### Output:
 - `docs/PRD.md`: Documento de Requisitos del Producto (PRD).
 - `docs/DOMAIN.md`: Documento de Dominio con entidades, relaciones y diagrama ERD en Mermaid.
-- `github.com/issues`: Issues de GitHub por funcionalidad con etiqueta `architect-done`.
+- `github.com/issues`: Issues de GitHub por funcionalidad marcados con etiqueta `architect-done`.
 
 ---
 
@@ -37,23 +37,23 @@ Responsable de planificar e implementar el código de cada funcionalidad tomando
 - `.agents/rules/`: Reglas técnicas de escritura y estilo de código (TypeScript, componentes, accesibilidad, etc.).
 
 ### Output:
-- `docs/features/{{ feature.slug }}/plan.md`: Plan de implementación detallado por funcionalidad.
-- `src/`: Código fuente del sistema, organizado por capas y funcionalidades.
+- `docs/features/{{ feature.slug }}/plan.md`: Plan de implementación detallado por funcionalidad (estado `builder-planned`).
+- `src/`: Código fuente del sistema (estado `builder-done`).
 
 ---
 
 ## Craftsman
 
-Responsable de escribir pruebas unitarias y documentación técnica una vez que el Builder ha completado la implementación.
+Responsable de escribir pruebas unitarias nativas y documentación técnica una vez que el Builder ha completado la implementación.
 
 ### Input:
-- `.ai/craftsman/test.template.md`: Instrucciones para implementar tests unitarios de una funcionalidad.
-- `.ai/craftsman/document.instructions.md`: Instrucciones para documentar el código fuente y generar documentación técnica.
+- `.ai/craftsman/test.template.md`: Instrucciones para diseñar e implementar tests unitarios de una funcionalidad.
+- `.ai/craftsman/document.instructions.md`: Instrucciones para documentar el código fuente y actualizar la estructura del sistema.
 - `.agents/rules/`: Reglas técnicas de escritura y estilo de pruebas.
 
 ### Output:
-- `src/**/__tests__/`: Tests unitarios y de integración organizados junto al código que prueban.
-- `docs/STRUCTURE.md`: Documento de Estructura que describe la arquitectura del sistema, patrones de diseño y organización de carpetas.
+- `src/**/__tests__/`: Tests unitarios y de integración (estado `craftsman-tested`).
+- `docs/STRUCTURE.md`: Documento de Estructura que describe la arquitectura del sistema, patrones de diseño y organización (estado `craftsman-documented`).
 
 ---
 
