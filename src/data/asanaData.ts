@@ -188,7 +188,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Calma la mente y alivia dolores de cabeza tensionales.',
       'Mejora la circulación hacia el cerebro.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'setu-bandha-sarvangasana',
@@ -209,7 +209,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros y flexores de cadera.',
       'Estimula tiroides y calma el sistema nervioso.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1540324155697-8e972e52b0b0?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'savasana',
@@ -293,7 +293,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estimula corazón, diafragma y órganos abdominales.',
       'Genera calor interno y desarrolla resistencia.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1540324155697-8e972e52b0b0?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'parsvakonasana',
@@ -419,7 +419,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Mejora retorno venoso y drenaje linfático de piernas.',
       'Calma mente, alivia insomnio y fatiga mental.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1540324155697-8e972e52b0b0?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'urdhva-dhanurasana',
@@ -440,28 +440,28 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros, flexores de cadera y cuádriceps.',
       'Energiza, mejora estado de ánimo y capacidad respiratoria.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80'
+imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80'
   },
   {
-    id: 'bakasana',
-    sanskritName: 'Bakasana',
-    englishName: 'Crow Pose',
-    spanishName: 'Postura del Cuervo',
-    difficulty: 'advanced',
-    category: 'Equilibrio en Brazos',
-    description: 'Equilibrio de brazos que requiere fuerza de core, compresión de cadera y confianza para transferir peso a las manos.',
+    id: 'bhujangasana',
+    sanskritName: 'Bhujangasana',
+    englishName: 'Cobra Pose',
+    spanishName: 'Postura de la Cobra',
+    difficulty: 'intermediate',
+    category: 'Extensión Espinal',
+    description: 'Extensión espinal prona que fortalece la espalda baja y abre el pecho, contrarrestando la postura encorvada.',
     alignmentPoints: [
-      'En cuclillas, manos en suelo al ancho de hombros, dedos bien abiertos.',
-      'Rodillas en la parte posterior de los brazos (tríceps), lo más alto posible.',
-      'Inclinarse adelante, transferir peso a manos, elevar pies.',
-      'Mirada al frente (no entre manos), core fuertemente activado, talones a glúteos.'
+      'Acostado boca arriba, manos bajo hombros, codos pegados a costillas.',
+      'Piernas extendidas, empeines en el suelo, glúteos relajados.',
+      'Inhalar elevar pecho usando fuerza de espalda (no empuje de brazos).',
+      'Omóplatos deslizados hacia la cintura, cuello largo, mirada frontal.'
     ],
     benefits: [
-      'Fortalece muñecas, brazos, hombros y core profundo.',
-      'Desarrolla concentración, valentía y propriocepción.',
-      'Masajea órganos abdominales por compresión.'
+      'Fortalece músculos erectores de la columna y glúteos.',
+      'Abre pecho, hombros y flexiona columna torácica.',
+      'Estimula órganos abdominales y mejora postura.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=800&q=80'
   },
   {
     id: 'eka-pada-rajakapotasana',
