@@ -1,4 +1,58 @@
 import type { IAsana } from '../types/app.types';
+import { LandmarkIndex } from '../types/domain.types';
+import type { IJointAngleRule } from '../types/domain.types';
+
+/** Reglas angulares para la evaluación automática de Vrksasana (Tree Pose). */
+const VRKSASANA_RULES: IJointAngleRule[] = [
+  {
+    jointName: 'Rodilla de apoyo',
+    landmarkA: LandmarkIndex.RIGHT_HIP,
+    landmarkB: LandmarkIndex.RIGHT_KNEE,
+    landmarkC: LandmarkIndex.RIGHT_ANKLE,
+    idealAngleMin: 165,
+    idealAngleMax: 180,
+    warningThreshold: 10,
+    weight: 1.0,
+    feedbackTemplate: 'Extiende la rodilla de apoyo {delta}°',
+    side: 'right',
+  },
+  {
+    jointName: 'Cadera de la pierna libre',
+    landmarkA: LandmarkIndex.RIGHT_HIP,
+    landmarkB: LandmarkIndex.LEFT_HIP,
+    landmarkC: LandmarkIndex.LEFT_KNEE,
+    idealAngleMin: 150,
+    idealAngleMax: 180,
+    warningThreshold: 15,
+    weight: 0.9,
+    feedbackTemplate: 'Abre la cadera libre {delta}°',
+    side: 'left',
+  },
+  {
+    jointName: 'Columna vertical',
+    landmarkA: LandmarkIndex.RIGHT_SHOULDER,
+    landmarkB: LandmarkIndex.RIGHT_HIP,
+    landmarkC: LandmarkIndex.RIGHT_KNEE,
+    idealAngleMin: 170,
+    idealAngleMax: 180,
+    warningThreshold: 8,
+    weight: 1.0,
+    feedbackTemplate: 'Alarga la columna {delta}°',
+    side: 'bilateral',
+  },
+  {
+    jointName: 'Hombros alineados',
+    landmarkA: LandmarkIndex.LEFT_SHOULDER,
+    landmarkB: LandmarkIndex.RIGHT_SHOULDER,
+    landmarkC: LandmarkIndex.RIGHT_HIP,
+    idealAngleMin: 80,
+    idealAngleMax: 100,
+    warningThreshold: 12,
+    weight: 0.7,
+    feedbackTemplate: 'Nivela los hombros {delta}°',
+    side: 'bilateral',
+  },
+];
 
 export const ASANA_CATALOG: IAsana[] = [
   {
@@ -20,7 +74,8 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece los músculos estabilizadores del tobillo y la rodilla.',
       'Aumenta la capacidad de concentración mental (Dharana).'
     ],
-    imageUrl: 'yoga_vrksasana.jpg'
+    imageUrl: 'yoga_vrksasana.jpg',
+    jointRules: VRKSASANA_RULES,
   },
   {
     id: 'tadasana',

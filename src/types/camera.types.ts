@@ -18,4 +18,9 @@ export interface CameraConfig {
   mirrorMode: boolean;
 }
 
-export type FrameCallback = (timestamp: DOMHighResTimeStamp) => void;
+/**
+ * Callback invocado por el frame loop en cada requestAnimationFrame.
+ * Recibe el timestamp RAF y una referencia al `<video>` de origen para que los
+ * consumidores (ej: detector de pose) puedan extraer un ImageBitmap.
+ */
+export type FrameCallback = (timestamp: DOMHighResTimeStamp, video: HTMLVideoElement) => void;

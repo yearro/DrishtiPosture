@@ -1,7 +1,16 @@
+import { useCallback, useEffect } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { NoPersonDetectedBanner } from '../components/ui/NoPersonDetectedBanner';
+import { ModelLoadingIndicator } from '../components/pose/ModelLoadingIndicator';
 import { ASANA_CATALOG } from '../data/asanaData';
 import { useCameraStream } from '../hooks/useCameraStream';
+import { usePoseDetector } from '../hooks/usePoseDetector';
+import { useAngleCalculator } from '../hooks/useAngleCalculator';
+import {
+  jointResultsToMetrics,
+  calculateOverallPoseScore,
+  selectTopFeedback,
+} from '../utils/pose-score.utils';
 import { CameraView } from '../components/camera/CameraView';
 import { CameraControls } from '../components/camera/CameraControls';
 import { CameraErrorBanner } from '../components/camera/CameraErrorBanner';
@@ -18,7 +27,49 @@ export function AnalysisView() {
     toggleMirror,
   } = useCameraStream();
 
+  const {
+    detectorState,
+    lastPoseFrame,
+    inferenceLatencyMs,
+    error: poseError,
+    initialize,
+    processFrame,
+  } = usePoseDetector();
+
   const activeAsana = state.activeAsana || ASANA_CATALOG[0];
+
+  // Calcular ángulos articulares reactivamente contra la asana activa
+  const jointResults = useAngleCalculator(lastPoseFrame, activeAsana);
+
+  // Actualizar el estado global (métricas, score, feedback) cuando llegue un nuevo frame
+  useEffect(() => {
+    if (jointResults.length === 0) return;
+
+    const metrics = jointResultsToMetrics(jointResults);
+    const overallScore = calculateOverallPoseScore(metrics);
+    const topFeedback = selectTopFeedback(metrics);
+
+    dispatch({ type: 'UPDATE_METRICS', payload: metrics });
+    dispatch({ type: 'SET_POSE_SCORE', payload: overallScore / 100 });
+    if (topFeedback) {
+      dispatch({ type: 'SET_LIVE_FEEDBACK', payload: topFeedback });
+    }
+  }, [jointResults, dispatch]);
+
+  // Inicializar el detector de pose MediaPipe cuando la cámara esté activa
+  useEffect(() => {
+    if (cameraState === 'active' && detectorState === 'uninitialized') {
+      initialize();
+    }
+  }, [cameraState, detectorState, initialize]);
+
+  // Procesar cada frame del loop de video a través del worker
+  const handleFrameReady = useCallback(
+    (_timestamp: DOMHighResTimeStamp, video: HTMLVideoElement) => {
+      processFrame(video);
+    },
+    [processFrame]
+  );
 
   const handleToggleNoPerson = () => {
     dispatch({ type: 'SET_NO_PERSON_DETECTED', payload: !state.noPersonDetected });
@@ -41,6 +92,18 @@ export function AnalysisView() {
       }}
     >
       <NoPersonDetectedBanner />
+
+      {detectorState === 'loading' && (
+        <ModelLoadingIndicator state={detectorState} />
+      )}
+
+      {poseError && (
+        <ModelLoadingIndicator
+          state={detectorState}
+          error={poseError}
+          onRetry={() => initialize()}
+        />
+      )}
 
       {error && (
         <CameraErrorBanner
@@ -156,7 +219,7 @@ export function AnalysisView() {
             </div>
 
             <div style={{ height: '180px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '12px' }}>
-              <img src={activeAsana.imageUrl} alt={activeAsana.spanishName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={new URL(`../assets/poses/${activeAsana.imageUrl}`, import.meta.url).toString()} alt={activeAsana.spanishName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <p className="font-body-md" style={{ fontSize: '14px', color: 'var(--color-on-surface-variant)' }}>
@@ -203,6 +266,26 @@ export function AnalysisView() {
                 </div>
               </div>
             ))}
+
+            {/* Inference Latency Indicator */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '8px 12px',
+                borderRadius: 'var(--radius-sm)',
+                backgroundColor: 'var(--color-surface-container)',
+                border: '1px solid var(--color-outline-variant)',
+                fontSize: '12px',
+                color: 'var(--color-on-surface-variant)'
+              }}
+            >
+              <span>Latencia de Inferencia (P95 objetivo: &lt;60ms)</span>
+              <span style={{ color: inferenceLatencyMs < 60 ? 'var(--color-tertiary)' : 'var(--color-error)', fontWeight: 600 }}>
+                {inferenceLatencyMs.toFixed(1)}ms
+              </span>
+            </div>
 
             {/* AI Insight Floating Card */}
             <div
@@ -251,6 +334,7 @@ export function AnalysisView() {
             <CameraView
               stream={stream}
               mirrorMode={mirrorMode}
+              onFrameReady={handleFrameReady}
             />
           </div>
 

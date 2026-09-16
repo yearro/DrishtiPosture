@@ -4,6 +4,8 @@ export type ThemeMode = 'dark' | 'light';
 
 export type AsanaDifficulty = 'beginner' | 'intermediate' | 'advanced';
 
+import type { IJointAngleRule } from './domain.types';
+
 export interface IAsana {
   id: string;
   sanskritName: string;
@@ -15,6 +17,8 @@ export interface IAsana {
   alignmentPoints: string[];
   benefits: string[];
   imageUrl: string;
+  /** Reglas angulares para la evaluación automática de la postura (Feature 3/4/5) */
+  jointRules?: IJointAngleRule[];
 }
 
 export interface IAlignmentMetric {

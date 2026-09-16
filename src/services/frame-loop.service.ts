@@ -4,11 +4,11 @@ export function startFrameLoop(
   video: HTMLVideoElement,
   callback: FrameCallback
 ): number {
-  let rafId = 0;
+  let rafId: number;
 
   const loop = (timestamp: DOMHighResTimeStamp) => {
     if (video.readyState >= 2) {
-      callback(timestamp);
+      callback(timestamp, video);
     }
     rafId = requestAnimationFrame(loop);
   };

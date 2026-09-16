@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
-import type { IPoseFrame, IAsana, IJointAngleResult } from '../types/domain.types';
+import type { IAsana } from '../types/app.types';
+import type { IPoseFrame } from '../types/domain.types';
 import { calculateJointAngles } from '../services/angle-calculator.service';
 
 /** Umbral de score de pose para considerar confiable el frame entero */
@@ -16,7 +17,7 @@ const MIN_POSE_SCORE = 0.5;
 export function useAngleCalculator(
   poseFrame: IPoseFrame | null,
   activeAsana: IAsana | null
-): IJointAngleResult[] {
+): import('../types/domain.types').IJointAngleResult[] {
   return useMemo(() => {
     if (!poseFrame || !activeAsana || poseFrame.poseScore < MIN_POSE_SCORE) {
       return [];

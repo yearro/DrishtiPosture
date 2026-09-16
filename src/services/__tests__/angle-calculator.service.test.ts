@@ -21,7 +21,7 @@ describe('angle-calculator.service > calculateJointAngles', () => {
     side: 'right',
   };
 
-  function createLandmark(index: number, x: number, y: number, visibility = 0.9): ILandmark {
+  function createLandmark(index: LandmarkIndex, x: number, y: number, visibility = 0.9): ILandmark {
     return { index, name: `LM_${index}`, x, y, z: 0, visibility };
   }
 
