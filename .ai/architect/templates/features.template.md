@@ -23,18 +23,18 @@
 ### 4.1 Escenarios Exitosos (Camino Feliz / Happy Paths)
 ```gherkin
 @feature-{{ feature.id | lower }} @happy-path @priority-p0
-Escenario: {{ feature.happy_path.title }}
-  Dado {{ feature.happy_path.given }}
-  Y {{ feature.happy_path.and_given }}
-  Cuando {{ feature.happy_path.when }}
-  Entonces {{ feature.happy_path.then }}
+Scenario: {{ feature.happy_path.title }}
+  Given {{ feature.happy_path.given }}
+  And {{ feature.happy_path.and_given }}
+  When {{ feature.happy_path.when }}
+  Then {{ feature.happy_path.then }}
 
 {% for scenario in feature.additional_happy_paths %}
 @feature-{{ feature.id | lower }} @happy-path @priority-p1
-Escenario: {{ scenario.title }}
-  Dado {{ scenario.given }}
-  Cuando {{ scenario.when }}
-  Entonces {{ scenario.then }}
+Scenario: {{ scenario.title }}
+  Given {{ scenario.given }}
+  When {{ scenario.when }}
+  Then {{ scenario.then }}
 {% endfor %}
 ```
 
@@ -42,10 +42,10 @@ Escenario: {{ scenario.title }}
 ```gherkin
 @feature-{{ feature.id | lower }} @alternative @priority-p1
 {% for scenario in feature.alternative_paths %}
-Escenario: {{ scenario.title }}
-  Dado {{ scenario.given }}
-  Cuando {{ scenario.when }}
-  Entonces {{ scenario.then }}
+Scenario: {{ scenario.title }}
+  Given {{ scenario.given }}
+  When {{ scenario.when }}
+  Then {{ scenario.then }}
 {% endfor %}
 ```
 
@@ -53,21 +53,21 @@ Escenario: {{ scenario.title }}
 ```gherkin
 @feature-{{ feature.id | lower }} @error-handling @priority-p0
 {% for scenario in feature.error_paths %}
-Escenario: {{ scenario.title }}
-  Dado {{ scenario.given }}
-  Cuando {{ scenario.when }}
-  Entonces {{ scenario.then }}
-  Y {{ scenario.and_then }}
+Scenario: {{ scenario.title }}
+  Given {{ scenario.given }}
+  When {{ scenario.when }}
+  Then {{ scenario.then }}
+  And {{ scenario.and_then }}
 {% endfor %}
 ```
 
 ### 4.4 Esquema del Escenario — Casos Parametrizados *(si aplica)*
 ```gherkin
 @feature-{{ feature.id | lower }} @data-driven
-Esquema del escenario: {{ feature.data_driven.title }}
-  Dado {{ feature.data_driven.given }}
-  Cuando {{ feature.data_driven.when }} con "<{{ feature.data_driven.param_1 }}>"
-  Entonces {{ feature.data_driven.then }} "<{{ feature.data_driven.expected }}>"
+Scenario: {{ feature.data_driven.title }}
+  Given {{ feature.data_driven.given }}
+  When {{ feature.data_driven.when }} with "<{{ feature.data_driven.param_1 }}>"
+  Then {{ feature.data_driven.then }} "<{{ feature.data_driven.expected }}>"
 
   Ejemplos:
     | {{ feature.data_driven.param_1 }} | {{ feature.data_driven.expected }} |
@@ -83,8 +83,8 @@ Esquema del escenario: {{ feature.data_driven.title }}
 
 | Elemento | Tipo | Estado / Comportamiento |
 |---|---|---|
-| {{ feature.ui.control_1 }} | {{ feature.ui.type_1 }} | {{ feature.ui.behavior_1 }} |
-| {{ feature.ui.control_2 }} | {{ feature.ui.type_2 }} | {{ feature.ui.behavior_2 }} |
+| `{{ feature.ui.control_1 }}` | `{{ feature.ui.type_1 }}` | {{ feature.ui.behavior_1 }} |
+| `{{ feature.ui.control_2 }}` | `{{ feature.ui.type_2 }}` | {{ feature.ui.behavior_2 }} |
 
 **Estados de UI requeridos:** `loading` · `empty` · `error` · `success`
 

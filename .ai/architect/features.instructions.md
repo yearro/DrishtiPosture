@@ -15,7 +15,7 @@ Tu objetivo es analizar el **Documento de Especificación Técnica/Funcional** y
 ### PROCESO DE GENERACIÓN EN PASOS:
 
 #### **Paso 1: Auditoría de Funcionalidades y Control de Datos Faltantes**
-1. Revisa el documento `[Ruta_o_Nombre_del_Archivo_de_Especificacion.md]` y extrae la lista completa de funcionalidades y módulos que conforman la aplicación.
+1. Revisa el documento `[Ruta_o_Nombre_del_Archivo_de_Especificacion.md]` e identifica o solicita la lista completa de funcionalidades y módulos que conforman la aplicación. Si la especificación no las contiene, DETENTE y pregunta al usuario: ¿Cuáles son las funcionalidades principales? Ofrece 2-3 sugerencias basadas en el tipo de producto.
 2. **Validación de Criterios de Negocio:** Si identificas flujos no especificados, reglas de negocio ambiguas o vacíos sobre cómo debe reaccionar el sistema en casos de error:
    - **DETENTE y enumera las preguntas o aclaraciones requeridas antes de generar los escenarios. Haz una pregunta a la vez, lo más cerrada posible. Ofrece sugerencias y una opción predefinida.**
    - Para detalles técnicos de implementación (métodos HTTP, estructura de payloads, estado local), propón la solución estándar de la industria.
