@@ -97,6 +97,7 @@ export const CatalogView: React.FC = () => {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: 'var(--space-md)' }}>
           {filteredAsanas.map((asana) => {
             const isSelected = selectedAsana.id === asana.id;
+            const dinamicRoute = new URL(`../assets/poses/${asana.imageUrl}`, import.meta.url).toString();
             return (
               <div
                 key={asana.id}
@@ -113,7 +114,7 @@ export const CatalogView: React.FC = () => {
               >
                 <div style={{ height: '180px', width: '100%', overflow: 'hidden', position: 'relative' }}>
                   <img
-                    src={asana.imageUrl}
+                    src={dinamicRoute}
                     alt={asana.spanishName}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   />
@@ -178,7 +179,7 @@ export const CatalogView: React.FC = () => {
           </h2>
 
           <div style={{ height: '220px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginTop: 'var(--space-sm)', marginBottom: 'var(--space-md)' }}>
-            <img src={selectedAsana.imageUrl} alt={selectedAsana.spanishName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={new URL(`../assets/poses/${selectedAsana.imageUrl}`, import.meta.url).toString()} alt={selectedAsana.spanishName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
           </div>
 
           <h3 className="font-label-md" style={{ color: 'var(--color-on-surface)', marginBottom: '8px' }}>

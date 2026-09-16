@@ -20,7 +20,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece los músculos estabilizadores del tobillo y la rodilla.',
       'Aumenta la capacidad de concentración mental (Dharana).'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_vrksasana.jpg'
   },
   {
     id: 'tadasana',
@@ -41,7 +41,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece muslos, rodillas y tobillos.',
       'Promueve una respiración diafragmática profunda.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_tadasana.jpg'
   },
   {
     id: 'virabhadrasana2',
@@ -62,7 +62,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre la ingle, el pecho y las articulaciones de la cadera.',
       'Desarrolla resistencia física y estabilidad mental.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_virabhadrasana_II.jpg'
   },
   {
     id: 'adho-mukha-svanasana',
@@ -83,7 +83,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece muñecas, hombros y músculos de la espalda.',
       'Calma la mente y ayuda a aliviar el estrés.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_adho_mukha_svanasana.jpg'
   },
   {
     id: 'trikonasana',
@@ -104,7 +104,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estimula los órganos abdominales y mejora la digestión.',
       'Alivia dolores de espalda de ligera intensidad.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_utthita_trikonasana.jpg'
   },
   {
     id: 'balasana',
@@ -125,7 +125,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Calma el sistema nervioso y reduce el estrés.',
       'Estira suavemente tobillos, muslos y cadera.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_balasana.jpg'
   },
   {
     id: 'marjaryasana-bitilasana',
@@ -146,7 +146,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Masajea órganos abdominales y mejora la digestión.',
       'Sincroniza respiración con movimiento (Vinyasa).'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_marjaryasa_a_bitilasana.jpg'
   },
   {
     id: 'sukhasana',
@@ -167,7 +167,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre suavemente caderas y tobillos.',
       'Promueve la calma mental y la introspección.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_sukhasana.jpg'
   },
   {
     id: 'uttanasana',
@@ -188,7 +188,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Calma la mente y alivia dolores de cabeza tensionales.',
       'Mejora la circulación hacia el cerebro.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_uttanasana.jpg'
   },
   {
     id: 'setu-bandha-sarvangasana',
@@ -209,7 +209,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros y flexores de cadera.',
       'Estimula tiroides y calma el sistema nervioso.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_setu_bandha_darvangasana.jpg'
   },
   {
     id: 'savasana',
@@ -230,7 +230,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Integra beneficios físicos y mentales de la práctica.',
       'Mejora calidad del sueño y reduce ansiedad.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_savasana.jpg'
   },
   {
     id: 'virabhadrasana1',
@@ -251,7 +251,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estira flexores de cadera, pecho y dorsales.',
       'Desarrolla enfoque, determinación y conexión a tierra.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_virabhadrasana_I.jpg'
   },
   {
     id: 'virabhadrasana3',
@@ -272,7 +272,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Mejora propiocepción, equilibrio y coordinación.',
       'Desarrolla fuerza mental y presencia.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1545205597-3d9d02c29597?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_virabhadrasana_III.jpg'
   },
   {
     id: 'utkatasana',
@@ -293,7 +293,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estimula corazón, diafragma y órganos abdominales.',
       'Genera calor interno y desarrolla resistencia.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_utkatasana.jpg'
   },
   {
     id: 'parsvakonasana',
@@ -314,7 +314,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estimula órganos abdominales y mejora resistencia.',
       'Prepara caderas y columna para posturas más profundas.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_utthita_parsvakonasana.jpg'
   },
   {
     id: 'prasarita-padottanasana',
@@ -335,7 +335,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Calma sistema nervioso (cabeza bajo corazón).',
       'Fortalece piernas y mejora circulación cerebral.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1599447421416-3414500d18a5?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_prasarita_padottanasana.jpg'
   },
   {
     id: 'ardha-matsyendrasana',
@@ -356,7 +356,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Masajea órganos digestivos y estimula detoxificación.',
       'Alivia rigidez en espalda, caderas y hombros.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_ardha_matsyendrasana.jpg'
   },
   {
     id: 'bhujangasana',
@@ -377,7 +377,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros y flexiona columna torácica.',
       'Estimula órganos abdominales y mejora postura.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1540324155697-8e972e52b0b0?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_bhujangasana.jpg'
   },
   {
     id: 'sirsasana',
@@ -398,7 +398,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece hombros, brazos, core y estabilizadores profundos.',
       'Promueve claridad mental, calma y equilibrio hormonal.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_sirsasana.jpg'
   },
   {
     id: 'sarvangasana',
@@ -419,7 +419,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Mejora retorno venoso y drenaje linfático de piernas.',
       'Calma mente, alivia insomnio y fatiga mental.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_sarvangasana.jpg'
   },
   {
     id: 'urdhva-dhanurasana',
@@ -440,28 +440,7 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros, flexores de cadera y cuádriceps.',
       'Energiza, mejora estado de ánimo y capacidad respiratoria.'
     ],
-imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=80'
-  },
-  {
-    id: 'bhujangasana',
-    sanskritName: 'Bhujangasana',
-    englishName: 'Cobra Pose',
-    spanishName: 'Postura de la Cobra',
-    difficulty: 'intermediate',
-    category: 'Extensión Espinal',
-    description: 'Extensión espinal prona que fortalece la espalda baja y abre el pecho, contrarrestando la postura encorvada.',
-    alignmentPoints: [
-      'Acostado boca arriba, manos bajo hombros, codos pegados a costillas.',
-      'Piernas extendidas, empeines en el suelo, glúteos relajados.',
-      'Inhalar elevar pecho usando fuerza de espalda (no empuje de brazos).',
-      'Omóplatos deslizados hacia la cintura, cuello largo, mirada frontal.'
-    ],
-    benefits: [
-      'Fortalece músculos erectores de la columna y glúteos.',
-      'Abre pecho, hombros y flexiona columna torácica.',
-      'Estimula órganos abdominales y mejora postura.'
-    ],
-    imageUrl: 'https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_urdhva_dhanurasana.jpg'
   },
   {
     id: 'eka-pada-rajakapotasana',
@@ -482,6 +461,6 @@ imageUrl: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=for
       'Estira pectorales, dorsales y flexiona columna torácica.',
       'Libera tensiones emocionales almacenadas en caderas.'
     ],
-    imageUrl: 'https://images.unsplash.com/photo-1510894347713-fc3ed6fdf539?auto=format&fit=crop&w=800&q=80'
+    imageUrl: 'yoga_eka_pada_rajakapotasana.jpg'
   }
 ];
