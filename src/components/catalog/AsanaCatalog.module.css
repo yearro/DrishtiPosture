@@ -1,0 +1,152 @@
+/* AsanaCatalog.module.css */
+
+/* Filter panel */
+.filterPanel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-surface);
+  padding: var(--space-sm);
+}
+
+/* Search input */
+.searchWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.searchInput {
+  width: 100%;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-surface-container);
+  padding: 10px 16px 10px 40px;
+  font-size: var(--font-size-body-sm);
+  font-family: var(--font-body);
+  color: var(--color-on-surface);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.searchInput::placeholder {
+  color: var(--color-on-surface-variant);
+}
+
+.searchInput:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(61, 79, 66, 0.15);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--color-on-surface-variant);
+  pointer-events: none;
+}
+
+/* Filter groups */
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filterLabel {
+  font-size: var(--font-size-label-sm);
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.filterChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-surface-container);
+  padding: 6px 12px;
+  font-size: var(--font-size-label-sm);
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  outline: none;
+}
+
+.chip:hover {
+  background-color: var(--color-surface-high);
+  color: var(--color-on-surface);
+  border-color: var(--color-outline);
+}
+
+.chipActive {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+  box-shadow: 0 2px 8px rgba(61, 79, 66, 0.25);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-sm);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Empty state */
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--color-outline-variant);
+  background-color: var(--color-surface);
+  padding: var(--space-lg);
+  text-align: center;
+  gap: 12px;
+}
+
+.emptyText {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-on-surface-variant);
+}
+
+.resetButton {
+  font-size: var(--font-size-label-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.resetButton:hover {
+  opacity: 0.75;
+}
