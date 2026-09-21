@@ -70,6 +70,7 @@ Independientemente del lenguaje utilizado, cada test debe seguir de forma estric
   - Cambia el estado a `craftsman-testing` al **iniciar** la escritura de tests.
   - Cambia el estado a `craftsman-tested` al **completar** todos los tests y verificar cobertura.
   - Publica un **comentario** en la incidencia con el resumen de cobertura: archivos testeados, número de tests escritos y resultado de la ejecución (`pass/fail`).
+  - **Nota:** Tras esta fase, el agente **Cronista (Document)** tomará el issue para generar documentación técnica (`craftsman-documenting` → `craftsman-documented`) y procederá al **cierre formal** (`closed`) según lo definido en [LIFECYCLE.md](../LIFECYCLE.md).
 - Confirma los cambios utilizando el formato convencional de mensaje de confirmación:
   - `test: Tests unitarios para {{ feature.slug }} #<issue-number>`
 
