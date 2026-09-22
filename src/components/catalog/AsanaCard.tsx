@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { IAsana } from '../../types/domain.types';
+import { getAsanaImageUrl } from '../../utils/image.utils';
 import styles from './AsanaCard.module.css';
 
 export interface AsanaCardProps {
@@ -50,10 +51,7 @@ export function AsanaCard({ asana, isSelected, onSelect }: AsanaCardProps) {
     asana.referenceImageUrl ||
     (asana as unknown as Record<string, string>).imageUrl ||
     '';
-  const imageSrc =
-    rawImage.startsWith('/') || rawImage.startsWith('http')
-      ? rawImage
-      : `/assets/poses/${rawImage}`;
+  const imageSrc = getAsanaImageUrl(rawImage, asana.id);
 
   const bodyZones = asana.bodyZones || [];
 

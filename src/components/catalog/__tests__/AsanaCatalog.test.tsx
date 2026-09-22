@@ -26,7 +26,7 @@ describe('AsanaCatalog Component', () => {
 
     const options = screen.getAllByRole('option');
     expect(options.length).toBe(1);
-    expect(screen.getByText('Postura del Árbol')).toBeDefined();
+    expect(screen.getByRole('heading', { name: 'Postura del Árbol' })).toBeDefined();
   });
 
   it('debe mostrar estado vacío cuando no hay coincidencias', () => {

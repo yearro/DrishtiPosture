@@ -8,7 +8,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Vrksasana',
     difficulty: 'beginner',
     bodyZones: ['balance', 'legs', 'spine'],
-    referenceImageUrl: '/assets/poses/vrksasana.webp',
+    referenceImageUrl: 'yoga_vrksasana.jpg',
     description: 'Postura de equilibrio sobre un pie que fortalece los tobillos y desarrolla la concentración.',
     jointRules: [
       {
@@ -56,7 +56,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Tadasana',
     difficulty: 'beginner',
     bodyZones: ['spine', 'legs', 'shoulders'],
-    referenceImageUrl: '/assets/poses/tadasana.webp',
+    referenceImageUrl: 'yoga_tadasana.jpg',
     description: 'Postura de pie fundamental que establece la alineación anatómica neutra.',
     jointRules: [
       {
@@ -104,7 +104,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Virabhadrasana I',
     difficulty: 'intermediate',
     bodyZones: ['legs', 'hips', 'shoulders'],
-    referenceImageUrl: '/assets/poses/virabhadrasana1.webp',
+    referenceImageUrl: 'yoga_virabhadrasana_I.jpg',
     description: 'Postura de pie potente que combina estabilidad y apertura de pecho.',
     jointRules: [
       {
@@ -152,7 +152,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Virabhadrasana II',
     difficulty: 'intermediate',
     bodyZones: ['legs', 'hips', 'arms'],
-    referenceImageUrl: '/assets/poses/virabhadrasana2.webp',
+    referenceImageUrl: 'yoga_virabhadrasana_II.jpg',
     description: 'Postura de pie que abre las caderas y fortalece muslos y hombros.',
     jointRules: [
       {
@@ -200,7 +200,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Virabhadrasana III',
     difficulty: 'advanced',
     bodyZones: ['balance', 'legs', 'core'],
-    referenceImageUrl: '/assets/poses/virabhadrasana3.webp',
+    referenceImageUrl: 'yoga_virabhadrasana_III.jpg',
     description: 'Postura de equilibrio sobre una pierna con torso y pierna elevada paralelos al suelo.',
     jointRules: [
       {
@@ -248,7 +248,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Adho Mukha Svanasana',
     difficulty: 'beginner',
     bodyZones: ['spine', 'legs', 'arms', 'shoulders'],
-    referenceImageUrl: '/assets/poses/adho-mukha-svanasana.webp',
+    referenceImageUrl: 'yoga_adho_mukha_svanasana.jpg',
     description: 'Inversión suave que estira la cadena posterior del cuerpo.',
     jointRules: [
       {
@@ -296,7 +296,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Utthita Trikonasana',
     difficulty: 'intermediate',
     bodyZones: ['legs', 'spine', 'hips'],
-    referenceImageUrl: '/assets/poses/trikonasana.webp',
+    referenceImageUrl: 'yoga_utthita_trikonasana.jpg',
     description: 'Asana de pie con flexión lateral de columna y rotación de caderas.',
     jointRules: [
       {
@@ -344,7 +344,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Balasana',
     difficulty: 'beginner',
     bodyZones: ['spine', 'hips', 'legs'],
-    referenceImageUrl: '/assets/poses/balasana.webp',
+    referenceImageUrl: 'yoga_balasana.jpg',
     description: 'Postura de descanso que relaja la columna y abre las caderas.',
     jointRules: [
       {
@@ -392,7 +392,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Marjaryasana-Bitilasana',
     difficulty: 'beginner',
     bodyZones: ['spine', 'core'],
-    referenceImageUrl: '/assets/poses/marjaryasana-bitilasana.webp',
+    referenceImageUrl: 'yoga_marjaryasa_a_bitilasana.jpg',
     description: 'Secuencia fluida para articular la columna en flexión y extensión.',
     jointRules: [
       {
@@ -440,7 +440,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Sukhasana',
     difficulty: 'beginner',
     bodyZones: ['spine', 'hips'],
-    referenceImageUrl: '/assets/poses/sukhasana.webp',
+    referenceImageUrl: 'yoga_sukhasana.jpg',
     description: 'Postura sentada meditativa con columna erguida.',
     jointRules: [
       {
@@ -488,7 +488,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Uttanasana',
     difficulty: 'beginner',
     bodyZones: ['legs', 'spine'],
-    referenceImageUrl: '/assets/poses/uttanasana.webp',
+    referenceImageUrl: 'yoga_uttanasana.jpg',
     description: 'Flexión profunda de cadera apoyada en piernas erguidas.',
     jointRules: [
       {
@@ -536,7 +536,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Setu Bandha Sarvangasana',
     difficulty: 'beginner',
     bodyZones: ['spine', 'core', 'legs'],
-    referenceImageUrl: '/assets/poses/setu-bandha-sarvangasana.webp',
+    referenceImageUrl: 'yoga_setu_bandha_darvangasana.jpg',
     description: 'Extensión espinal supinada que fortalece glúteos y muslos.',
     jointRules: [
       {
@@ -584,7 +584,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Savasana',
     difficulty: 'beginner',
     bodyZones: ['spine', 'shoulders', 'legs'],
-    referenceImageUrl: '/assets/poses/savasana.webp',
+    referenceImageUrl: 'yoga_savasana.jpg',
     description: 'Postura de relajación completa en decúbito supino.',
     jointRules: [
       {
@@ -632,7 +632,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Utkatasana',
     difficulty: 'intermediate',
     bodyZones: ['legs', 'core', 'arms'],
-    referenceImageUrl: '/assets/poses/utkatasana.webp',
+    referenceImageUrl: 'yoga_utkatasana.jpg',
     description: 'Sentadilla sostenida que fortalece cuadriceps y zona abdominal.',
     jointRules: [
       {
@@ -680,7 +680,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Utthita Parsvakonasana',
     difficulty: 'intermediate',
     bodyZones: ['legs', 'spine', 'arms'],
-    referenceImageUrl: '/assets/poses/parsvakonasana.webp',
+    referenceImageUrl: 'yoga_utthita_parsvakonasana.jpg',
     description: 'Estiramiento lateral intenso con flexión profunda de rodilla delantera.',
     jointRules: [
       {
@@ -728,7 +728,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Prasarita Padottanasana',
     difficulty: 'intermediate',
     bodyZones: ['legs', 'spine', 'hips'],
-    referenceImageUrl: '/assets/poses/prasarita-padottanasana.webp',
+    referenceImageUrl: 'yoga_prasarita_padottanasana.jpg',
     description: 'Flexión hacia adelante con separación amplia de piernas.',
     jointRules: [
       {
@@ -776,7 +776,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Ardha Matsyendrasana',
     difficulty: 'intermediate',
     bodyZones: ['spine', 'hips', 'core'],
-    referenceImageUrl: '/assets/poses/ardha-matsyendrasana.webp',
+    referenceImageUrl: 'yoga_ardha_matsyendrasana.jpg',
     description: 'Torsión espinal sentada que moviliza la zona dorsal y lumbar.',
     jointRules: [
       {
@@ -824,7 +824,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Bhujangasana',
     difficulty: 'intermediate',
     bodyZones: ['spine', 'shoulders', 'core'],
-    referenceImageUrl: '/assets/poses/bhujangasana.webp',
+    referenceImageUrl: 'yoga_bhujangasana.jpg',
     description: 'Extensión espinal boca abajo que fortalece la espalda.',
     jointRules: [
       {
@@ -872,7 +872,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Sirsasana',
     difficulty: 'advanced',
     bodyZones: ['balance', 'core', 'arms', 'shoulders', 'spine'],
-    referenceImageUrl: '/assets/poses/sirsasana.webp',
+    referenceImageUrl: 'yoga_sirsasana.jpg',
     description: 'Inversión completa sostenida sobre antebrazos y cabeza.',
     jointRules: [
       {
@@ -920,7 +920,7 @@ export const POSES_CATALOG: readonly IAsana[] = Object.freeze([
     nameSanskrit: 'Sarvangasana',
     difficulty: 'advanced',
     bodyZones: ['balance', 'spine', 'core', 'shoulders'],
-    referenceImageUrl: '/assets/poses/sarvangasana.webp',
+    referenceImageUrl: 'yoga_sarvangasana.jpg',
     description: 'Inversión vertical sostenida sobre los hombros.',
     jointRules: [
       {
