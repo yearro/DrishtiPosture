@@ -34,28 +34,28 @@ export function Header({ className }: HeaderProps) {
           className={`header-nav-link ${state.view === 'welcome' ? 'active' : ''}`}
           onClick={(e) => handleNavClick(e, 'welcome')}
         >
-          Home
+          Inicio
         </a>
         <a
           href="#"
           className={`header-nav-link ${state.view === 'catalog' ? 'active' : ''}`}
           onClick={(e) => handleNavClick(e, 'catalog')}
         >
-          New Scan
+          Nuevo Análisis
         </a>
         <a
           href="#"
           className={`header-nav-link ${state.view === 'analysis' ? 'active' : ''}`}
           onClick={(e) => handleNavClick(e, 'analysis')}
         >
-          History
+          Historial
         </a>
         <a
           href="#"
           className="header-nav-link"
           onClick={(e) => handleNavClick(e, 'welcome')}
         >
-          Profile
+          Perfil
         </a>
       </nav>
 

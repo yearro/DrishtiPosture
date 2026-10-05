@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
-import type { IAsana } from '../../types/domain.types';
+import type { IAsana, BodyZone } from '../../types/domain.types';
 import { getAsanaImageUrl } from '../../utils/image.utils';
 import styles from './AsanaCard.module.css';
+
+const bodyZoneLabels: Record<BodyZone, string> = {
+  legs: 'Piernas',
+  core: 'Core',
+  arms: 'Brazos',
+  shoulders: 'Hombros',
+  hips: 'Caderas',
+  balance: 'Equilibrio',
+  spine: 'Columna',
+};
 
 export interface AsanaCardProps {
   asana: IAsana;
@@ -125,7 +135,7 @@ export function AsanaCard({ asana, isSelected, onSelect }: AsanaCardProps) {
           <div className={styles.zones}>
             {bodyZones.map((zone) => (
               <span key={zone} className={styles.zoneTag}>
-                {zone}
+                {bodyZoneLabels[zone] ?? zone}
               </span>
             ))}
           </div>

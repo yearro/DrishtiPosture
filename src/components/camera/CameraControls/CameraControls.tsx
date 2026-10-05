@@ -52,7 +52,7 @@ export function CameraControls({
           <span className="material-symbols-outlined" aria-hidden="true">
             flip
           </span>
-          <span>Espejo {mirrorMode ? 'ON' : 'OFF'}</span>
+          <span>Espejo {mirrorMode ? 'Activado' : 'Desactivado'}</span>
         </button>
       </div>
 

@@ -14,24 +14,24 @@ export function Footer({ className }: FooterProps) {
               <span className="material-symbols-outlined footer-brand-icon">spa</span>
               <span className="footer-brand-text">DrishtiPosture</span>
             </div>
-            <span className="footer-tagline">Trusted Tranquility in Motion</span>
+            <span className="footer-tagline">Tranquilidad Confiable en Movimiento</span>
           </div>
 
           <nav className="footer-links" aria-label="Enlaces secundarios del pie de página">
             <a href="#privacy" className="footer-link">
-              Privacy
+              Privacidad
             </a>
             <a href="#terms" className="footer-link">
-              Terms
+              Términos
             </a>
             <a href="#contact" className="footer-link">
-              Contact
+              Contacto
             </a>
           </nav>
         </div>
 
         <div className="footer-bottom">
-          <p>© 2024 DrishtiPosture. All rights reserved.</p>
+          <p>© 2024 DrishtiPosture. Todos los derechos reservados.</p>
         </div>
       </div>
     </footer>

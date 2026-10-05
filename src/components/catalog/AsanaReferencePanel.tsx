@@ -1,7 +1,17 @@
 import { useState } from 'react';
-import type { IAsana } from '../../types/domain.types';
+import type { IAsana, BodyZone } from '../../types/domain.types';
 import { getAsanaImageUrl } from '../../utils/image.utils';
 import styles from './AsanaReferencePanel.module.css';
+
+const bodyZoneLabels: Record<BodyZone, string> = {
+  legs: 'Piernas',
+  core: 'Core',
+  arms: 'Brazos',
+  shoulders: 'Hombros',
+  hips: 'Caderas',
+  balance: 'Equilibrio',
+  spine: 'Columna',
+};
 
 export interface AsanaReferencePanelProps {
   asana: IAsana | null;
@@ -134,7 +144,7 @@ export function AsanaReferencePanel({ asana }: AsanaReferencePanelProps) {
           <div className={styles.zones}>
             {bodyZones.map((zone) => (
               <span key={zone} className={styles.zoneTag}>
-                {zone}
+                {bodyZoneLabels[zone] ?? zone}
               </span>
             ))}
           </div>
