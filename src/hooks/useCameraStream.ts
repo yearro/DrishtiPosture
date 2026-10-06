@@ -28,7 +28,6 @@ export function useCameraStream(): UseCameraStreamReturn {
   });
 
   const streamRef = useRef<MediaStream | null>(null);
-  streamRef.current = stream;
 
   const startCamera = useCallback(async () => {
     setCameraState('loading');
@@ -39,9 +38,11 @@ export function useCameraStream(): UseCameraStreamReturn {
         releaseStream(streamRef.current);
       }
       const newStream = await requestCameraAccess();
+      streamRef.current = newStream;
       setStream(newStream);
       setCameraState('active');
     } catch (err) {
+      streamRef.current = null;
       setStream(null);
       setError(err as CameraError);
       setCameraState('error');

@@ -1,7 +1,6 @@
-import React from 'react';
 import { useAppContext } from '../../context/AppContext';
 
-export const NoPersonDetectedBanner: React.FC = () => {
+export function NoPersonDetectedBanner() {
   const { state } = useAppContext();
 
   if (!state.noPersonDetected) {

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import type { IAsana, BodyZone } from '../../types/domain.types';
+import type { IAsana } from '../../types/app.types';
+import type { BodyZone } from '../../types/domain.types';
 import { getAsanaImageUrl } from '../../utils/image.utils';
 import styles from './AsanaCard.module.css';
 
@@ -45,22 +46,10 @@ export function AsanaCard({ asana, isSelected, onSelect }: AsanaCardProps) {
     }
   };
 
-  const nameEs =
-    asana.nameEs ||
-    (asana as unknown as Record<string, string>).spanishName ||
-    asana.id;
-  const nameSanskrit =
-    asana.nameSanskrit ||
-    (asana as unknown as Record<string, string>).sanskritName ||
-    '';
-  const nameEn =
-    asana.nameEn ||
-    (asana as unknown as Record<string, string>).englishName ||
-    '';
-  const rawImage =
-    asana.referenceImageUrl ||
-    (asana as unknown as Record<string, string>).imageUrl ||
-    '';
+  const nameEs = asana.nameEs || asana.id;
+  const nameSanskrit = asana.nameSanskrit || '';
+  const nameEn = asana.nameEn || '';
+  const rawImage = asana.referenceImageUrl || '';
   const imageSrc = getAsanaImageUrl(rawImage, asana.id);
 
   const bodyZones = asana.bodyZones || [];

@@ -57,9 +57,9 @@ const VRKSASANA_RULES: IJointAngleRule[] = [
 export const ASANA_CATALOG: IAsana[] = [
   {
     id: 'vrksasana',
-    sanskritName: 'Vrksasana',
-    englishName: 'Tree Pose',
-    spanishName: 'Postura del Árbol',
+    nameSanskrit: 'Vrksasana',
+    nameEn: 'Tree Pose',
+    nameEs: 'Postura del Árbol',
     difficulty: 'beginner',
     category: 'Equilibrio y Enraizamiento',
     description: 'Postura de equilibrio sobre un pie que fortalece los tobillos y desarrolla la concentración y la postura erguida.',
@@ -74,14 +74,14 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece los músculos estabilizadores del tobillo y la rodilla.',
       'Aumenta la capacidad de concentración mental (Dharana).'
     ],
-    imageUrl: 'yoga_vrksasana.jpg',
+    referenceImageUrl: 'yoga_vrksasana.jpg',
     jointRules: VRKSASANA_RULES,
   },
   {
     id: 'tadasana',
-    sanskritName: 'Tadasana',
-    englishName: 'Mountain Pose',
-    spanishName: 'Postura de la Montaña',
+    nameSanskrit: 'Tadasana',
+    nameEn: 'Mountain Pose',
+    nameEs: 'Postura de la Montaña',
     difficulty: 'beginner',
     category: 'Alineación Base',
     description: 'La postura fundamental de pie que enseña la alineación anatómica neutra y la distribución equilibrada del peso corporal.',
@@ -96,13 +96,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece muslos, rodillas y tobillos.',
       'Promueve una respiración diafragmática profunda.'
     ],
-    imageUrl: 'yoga_tadasana.jpg'
+    referenceImageUrl: 'yoga_tadasana.jpg'
   },
   {
     id: 'virabhadrasana2',
-    sanskritName: 'Virabhadrasana II',
-    englishName: 'Warrior II',
-    spanishName: 'Postura del Guerrero II',
+    nameSanskrit: 'Virabhadrasana II',
+    nameEn: 'Warrior II',
+    nameEs: 'Postura del Guerrero II',
     difficulty: 'intermediate',
     category: 'Fuerza y Apertura',
     description: 'Postura de pie potente que abre las caderas, fortalece las piernas y desarrolla fuerza de voluntad.',
@@ -117,13 +117,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre la ingle, el pecho y las articulaciones de la cadera.',
       'Desarrolla resistencia física y estabilidad mental.'
     ],
-    imageUrl: 'yoga_virabhadrasana_II.jpg'
+    referenceImageUrl: 'yoga_virabhadrasana_II.jpg'
   },
   {
     id: 'adho-mukha-svanasana',
-    sanskritName: 'Adho Mukha Svanasana',
-    englishName: 'Downward-Facing Dog',
-    spanishName: 'Perro mirando hacia abajo',
+    nameSanskrit: 'Adho Mukha Svanasana',
+    nameEn: 'Downward-Facing Dog',
+    nameEs: 'Perro mirando hacia abajo',
     difficulty: 'intermediate',
     category: 'Inversión y Estiramiento',
     description: 'Una de las asanas más emblemáticas del yoga; estira toda la cadena posterior y fortalece el tren superior.',
@@ -138,13 +138,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece muñecas, hombros y músculos de la espalda.',
       'Calma la mente y ayuda a aliviar el estrés.'
     ],
-    imageUrl: 'yoga_adho_mukha_svanasana.jpg'
+    referenceImageUrl: 'yoga_adho_mukha_svanasana.jpg'
   },
   {
     id: 'trikonasana',
-    sanskritName: 'Utthita Trikonasana',
-    englishName: 'Extended Triangle Pose',
-    spanishName: 'Postura del Triángulo',
+    nameSanskrit: 'Utthita Trikonasana',
+    nameEn: 'Extended Triangle Pose',
+    nameEs: 'Postura del Triángulo',
     difficulty: 'intermediate',
     category: 'Estiramiento Lateral',
     description: 'Asana de pie que combina flexión lateral de columna con rotación externa de caderas.',
@@ -159,13 +159,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estimula los órganos abdominales y mejora la digestión.',
       'Alivia dolores de espalda de ligera intensidad.'
     ],
-    imageUrl: 'yoga_utthita_trikonasana.jpg'
+    referenceImageUrl: 'yoga_utthita_trikonasana.jpg'
   },
   {
     id: 'balasana',
-    sanskritName: 'Balasana',
-    englishName: 'Child\'s Pose',
-    spanishName: 'Postura del Niño',
+    nameSanskrit: 'Balasana',
+    nameEn: 'Child\'s Pose',
+    nameEs: 'Postura del Niño',
     difficulty: 'beginner',
     category: 'Descanso y Restauración',
     description: 'Postura de descanso profunda que relaja la columna, caderas y mente. Ideal para recuperarse entre asanas más intensas.',
@@ -180,13 +180,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Calma el sistema nervioso y reduce el estrés.',
       'Estira suavemente tobillos, muslos y cadera.'
     ],
-    imageUrl: 'yoga_balasana.jpg'
+    referenceImageUrl: 'yoga_balasana.jpg'
   },
   {
     id: 'marjaryasana-bitilasana',
-    sanskritName: 'Marjaryasana-Bitilasana',
-    englishName: 'Cat-Cow',
-    spanishName: 'Gato-Vaca',
+    nameSanskrit: 'Marjaryasana-Bitilasana',
+    nameEn: 'Cat-Cow',
+    nameEs: 'Gato-Vaca',
     difficulty: 'beginner',
     category: 'Movilidad Espinal',
     description: 'Secuencia fluida que moviliza la columna vertebral en flexión y extensión, sincronizada con la respiración.',
@@ -201,13 +201,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Masajea órganos abdominales y mejora la digestión.',
       'Sincroniza respiración con movimiento (Vinyasa).'
     ],
-    imageUrl: 'yoga_marjaryasa_a_bitilasana.jpg'
+    referenceImageUrl: 'yoga_marjaryasa_a_bitilasana.jpg'
   },
   {
     id: 'sukhasana',
-    sanskritName: 'Sukhasana',
-    englishName: 'Easy Pose',
-    spanishName: 'Postura Fácil',
+    nameSanskrit: 'Sukhasana',
+    nameEn: 'Easy Pose',
+    nameEs: 'Postura Fácil',
     difficulty: 'beginner',
     category: 'Meditación y Asiento',
     description: 'Asiento cruzado simple y estable para pranayama y meditación, con columna erguida y caderas abiertas.',
@@ -222,13 +222,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre suavemente caderas y tobillos.',
       'Promueve la calma mental y la introspección.'
     ],
-    imageUrl: 'yoga_sukhasana.jpg'
+    referenceImageUrl: 'yoga_sukhasana.jpg'
   },
   {
     id: 'uttanasana',
-    sanskritName: 'Uttanasana',
-    englishName: 'Standing Forward Fold',
-    spanishName: 'Flexión Adelante de Pie',
+    nameSanskrit: 'Uttanasana',
+    nameEn: 'Standing Forward Fold',
+    nameEs: 'Flexión Adelante de Pie',
     difficulty: 'beginner',
     category: 'Estiramiento Posterior',
     description: 'Flexión hacia adelante de pie que libera la zona lumbar y estira toda la cadena posterior del cuerpo.',
@@ -243,13 +243,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Calma la mente y alivia dolores de cabeza tensionales.',
       'Mejora la circulación hacia el cerebro.'
     ],
-    imageUrl: 'yoga_uttanasana.jpg'
+    referenceImageUrl: 'yoga_uttanasana.jpg'
   },
   {
     id: 'setu-bandha-sarvangasana',
-    sanskritName: 'Setu Bandha Sarvangasana',
-    englishName: 'Bridge Pose',
-    spanishName: 'Postura del Puente',
+    nameSanskrit: 'Setu Bandha Sarvangasana',
+    nameEn: 'Bridge Pose',
+    nameEs: 'Postura del Puente',
     difficulty: 'beginner',
     category: 'Extensión Espinal Suave',
     description: 'Extensión espinal apoyada que abre el pecho, fortalece glúteos y prepara para inversiones.',
@@ -264,13 +264,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros y flexores de cadera.',
       'Estimula tiroides y calma el sistema nervioso.'
     ],
-    imageUrl: 'yoga_setu_bandha_darvangasana.jpg'
+    referenceImageUrl: 'yoga_setu_bandha_darvangasana.jpg'
   },
   {
     id: 'savasana',
-    sanskritName: 'Savasana',
-    englishName: 'Corpse Pose',
-    spanishName: 'Postura del Cadáver',
+    nameSanskrit: 'Savasana',
+    nameEn: 'Corpse Pose',
+    nameEs: 'Postura del Cadáver',
     difficulty: 'beginner',
     category: 'Relajación Final',
     description: 'Relajación consciente completa para integrar la práctica y resetear el sistema nervioso.',
@@ -285,13 +285,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Integra beneficios físicos y mentales de la práctica.',
       'Mejora calidad del sueño y reduce ansiedad.'
     ],
-    imageUrl: 'yoga_savasana.jpg'
+    referenceImageUrl: 'yoga_savasana.jpg'
   },
   {
     id: 'virabhadrasana1',
-    sanskritName: 'Virabhadrasana I',
-    englishName: 'Warrior I',
-    spanishName: 'Guerrero I',
+    nameSanskrit: 'Virabhadrasana I',
+    nameEn: 'Warrior I',
+    nameEs: 'Guerrero I',
     difficulty: 'intermediate',
     category: 'Fuerza y Apertura',
     description: 'Postura de pie poderosa que combina estabilidad, fuerza de piernas y apertura de pecho y flexores de cadera.',
@@ -306,13 +306,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estira flexores de cadera, pecho y dorsales.',
       'Desarrolla enfoque, determinación y conexión a tierra.'
     ],
-    imageUrl: 'yoga_virabhadrasana_I.jpg'
+    referenceImageUrl: 'yoga_virabhadrasana_I.jpg'
   },
   {
     id: 'virabhadrasana3',
-    sanskritName: 'Virabhadrasana III',
-    englishName: 'Warrior III',
-    spanishName: 'Guerrero III',
+    nameSanskrit: 'Virabhadrasana III',
+    nameEn: 'Warrior III',
+    nameEs: 'Guerrero III',
     difficulty: 'intermediate',
     category: 'Equilibrio y Enraizamiento',
     description: 'Equilibrio sobre una pierna con torso y pierna trasera paralelos al suelo, cultivando fuerza y concentración.',
@@ -327,13 +327,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Mejora propiocepción, equilibrio y coordinación.',
       'Desarrolla fuerza mental y presencia.'
     ],
-    imageUrl: 'yoga_virabhadrasana_III.jpg'
+    referenceImageUrl: 'yoga_virabhadrasana_III.jpg'
   },
   {
     id: 'utkatasana',
-    sanskritName: 'Utkatasana',
-    englishName: 'Chair Pose',
-    spanishName: 'Postura de la Silla',
+    nameSanskrit: 'Utkatasana',
+    nameEn: 'Chair Pose',
+    nameEs: 'Postura de la Silla',
     difficulty: 'intermediate',
     category: 'Fuerza y Estabilidad',
     description: 'Sentado imaginario que fortalece intensamente piernas y core mientras desafía el equilibrio y la respiración.',
@@ -348,13 +348,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estimula corazón, diafragma y órganos abdominales.',
       'Genera calor interno y desarrolla resistencia.'
     ],
-    imageUrl: 'yoga_utkatasana.jpg'
+    referenceImageUrl: 'yoga_utkatasana.jpg'
   },
   {
     id: 'parsvakonasana',
-    sanskritName: 'Utthita Parsvakonasana',
-    englishName: 'Extended Side Angle',
-    spanishName: 'Ángulo Lateral Extendido',
+    nameSanskrit: 'Utthita Parsvakonasana',
+    nameEn: 'Extended Side Angle',
+    nameEs: 'Ángulo Lateral Extendido',
     difficulty: 'intermediate',
     category: 'Estiramiento Lateral',
     description: 'Flexión lateral profunda con pierna delantera flexionada, abriendo la cadena lateral completa del cuerpo.',
@@ -369,13 +369,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estimula órganos abdominales y mejora resistencia.',
       'Prepara caderas y columna para posturas más profundas.'
     ],
-    imageUrl: 'yoga_utthita_parsvakonasana.jpg'
+    referenceImageUrl: 'yoga_utthita_parsvakonasana.jpg'
   },
   {
     id: 'prasarita-padottanasana',
-    sanskritName: 'Prasarita Padottanasana',
-    englishName: 'Wide-Legged Forward Fold',
-    spanishName: 'Flexión Adelante Piernas Abiertas',
+    nameSanskrit: 'Prasarita Padottanasana',
+    nameEn: 'Wide-Legged Forward Fold',
+    nameEs: 'Flexión Adelante Piernas Abiertas',
     difficulty: 'intermediate',
     category: 'Inversión y Estiramiento',
     description: 'Flexión adelante con piernas abiertas que combina inversión suave con estiramiento intenso de isquiotibiales e ingles.',
@@ -390,13 +390,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Calma sistema nervioso (cabeza bajo corazón).',
       'Fortalece piernas y mejora circulación cerebral.'
     ],
-    imageUrl: 'yoga_prasarita_padottanasana.jpg'
+    referenceImageUrl: 'yoga_prasarita_padottanasana.jpg'
   },
   {
     id: 'ardha-matsyendrasana',
-    sanskritName: 'Ardha Matsyendrasana',
-    englishName: 'Half Lord of the Fishes',
-    spanishName: 'Medio Señor de los Peces',
+    nameSanskrit: 'Ardha Matsyendrasana',
+    nameEn: 'Half Lord of the Fishes',
+    nameEs: 'Medio Señor de los Peces',
     difficulty: 'intermediate',
     category: 'Torsión Espinal',
     description: 'Torsión sentada que rota la columna vertebral, masajea órganos internos y libera tensión en espalda y caderas.',
@@ -411,13 +411,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Masajea órganos digestivos y estimula detoxificación.',
       'Alivia rigidez en espalda, caderas y hombros.'
     ],
-    imageUrl: 'yoga_ardha_matsyendrasana.jpg'
+    referenceImageUrl: 'yoga_ardha_matsyendrasana.jpg'
   },
   {
     id: 'bhujangasana',
-    sanskritName: 'Bhujangasana',
-    englishName: 'Cobra Pose',
-    spanishName: 'Postura de la Cobra',
+    nameSanskrit: 'Bhujangasana',
+    nameEn: 'Cobra Pose',
+    nameEs: 'Postura de la Cobra',
     difficulty: 'intermediate',
     category: 'Extensión Espinal',
     description: 'Extensión espinal prona que fortalece la espalda baja y abre el pecho, contrarrestando la postura encorvada.',
@@ -432,13 +432,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros y flexiona columna torácica.',
       'Estimula órganos abdominales y mejora postura.'
     ],
-    imageUrl: 'yoga_bhujangasana.jpg'
+    referenceImageUrl: 'yoga_bhujangasana.jpg'
   },
   {
     id: 'sirsasana',
-    sanskritName: 'Sirsasana',
-    englishName: 'Headstand',
-    spanishName: 'Postura sobre la Cabeza',
+    nameSanskrit: 'Sirsasana',
+    nameEn: 'Headstand',
+    nameEs: 'Postura sobre la Cabeza',
     difficulty: 'advanced',
     category: 'Inversión',
     description: 'Inversión completa apoyada en cabeza y antebrazos, considerada el rey de las asanas por sus beneficios sistémicos.',
@@ -453,13 +453,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Fortalece hombros, brazos, core y estabilizadores profundos.',
       'Promueve claridad mental, calma y equilibrio hormonal.'
     ],
-    imageUrl: 'yoga_sirsasana.jpg'
+    referenceImageUrl: 'yoga_sirsasana.jpg'
   },
   {
     id: 'sarvangasana',
-    sanskritName: 'Sarvangasana',
-    englishName: 'Shoulderstand',
-    spanishName: 'Postura sobre los Hombros',
+    nameSanskrit: 'Sarvangasana',
+    nameEn: 'Shoulderstand',
+    nameEs: 'Postura sobre los Hombros',
     difficulty: 'advanced',
     category: 'Inversión',
     description: 'Inversión apoyada en hombros y brazos, la reina de las asanas, que nutre tiroides y sistema endocrino.',
@@ -474,13 +474,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Mejora retorno venoso y drenaje linfático de piernas.',
       'Calma mente, alivia insomnio y fatiga mental.'
     ],
-    imageUrl: 'yoga_sarvangasana.jpg'
+    referenceImageUrl: 'yoga_sarvangasana.jpg'
   },
   {
     id: 'urdhva-dhanurasana',
-    sanskritName: 'Urdhva Dhanurasana',
-    englishName: 'Wheel Pose',
-    spanishName: 'Postura de la Rueda',
+    nameSanskrit: 'Urdhva Dhanurasana',
+    nameEn: 'Wheel Pose',
+    nameEs: 'Postura de la Rueda',
     difficulty: 'advanced',
     category: 'Extensión Espinal Profunda',
     description: 'Arco posterior completo que requiere fuerza, flexibilidad y apertura en toda la cadena anterior del cuerpo.',
@@ -495,13 +495,13 @@ export const ASANA_CATALOG: IAsana[] = [
       'Abre pecho, hombros, flexores de cadera y cuádriceps.',
       'Energiza, mejora estado de ánimo y capacidad respiratoria.'
     ],
-    imageUrl: 'yoga_urdhva_dhanurasana.jpg'
+    referenceImageUrl: 'yoga_urdhva_dhanurasana.jpg'
   },
   {
     id: 'eka-pada-rajakapotasana',
-    sanskritName: 'Eka Pada Rajakapotasana',
-    englishName: 'One-Legged King Pigeon',
-    spanishName: 'Paloma Real Una Pierna',
+    nameSanskrit: 'Eka Pada Rajakapotasana',
+    nameEn: 'One-Legged King Pigeon',
+    nameEs: 'Paloma Real Una Pierna',
     difficulty: 'advanced',
     category: 'Apertura de Cadera Profunda',
     description: 'Abertura extrema de cadera con flexión posterior, integrando flexibilidad de psoas, cuádriceps y columna.',
@@ -516,6 +516,6 @@ export const ASANA_CATALOG: IAsana[] = [
       'Estira pectorales, dorsales y flexiona columna torácica.',
       'Libera tensiones emocionales almacenadas en caderas.'
     ],
-    imageUrl: 'yoga_eka_pada_rajakapotasana.jpg'
+    referenceImageUrl: 'yoga_eka_pada_rajakapotasana.jpg'
   }
 ];

@@ -1,22 +1,21 @@
-import React from 'react';
 import { useAppContext } from '../context/AppContext';
 import { AsanaCatalog } from '../components/catalog/AsanaCatalog';
 import { AsanaReferencePanel } from '../components/catalog/AsanaReferencePanel';
-import type { IAsana } from '../types/domain.types';
+import type { IAsana } from '../types/app.types';
 import styles from './CatalogView.module.css';
 
-export const CatalogView: React.FC = () => {
+export function CatalogView() {
   const { state, selectAsana, setView } = useAppContext();
 
   const handleSelectAsana = (asana: IAsana) => {
-    selectAsana(asana as any);
+    selectAsana(asana);
   };
 
   const handleStartAnalysis = () => {
     setView('analysis');
   };
 
-  const activeAsana: IAsana | null = (state.activeAsana as unknown as IAsana) || null;
+  const activeAsana = state.activeAsana ?? null;
 
   return (
     <main className={`animate-fade-in ${styles.page}`}>

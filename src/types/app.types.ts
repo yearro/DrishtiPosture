@@ -4,21 +4,18 @@ export type ThemeMode = 'dark' | 'light';
 
 export type AsanaDifficulty = 'beginner' | 'intermediate' | 'advanced';
 
-import type { IJointAngleRule } from './domain.types';
+import type { IAsana as IDomainAsana, BodyZone } from './domain.types';
 
-export interface IAsana {
-  id: string;
-  sanskritName: string;
-  englishName: string;
-  spanishName: string;
-  difficulty: AsanaDifficulty;
-  category: string;
-  description: string;
-  alignmentPoints: string[];
-  benefits: string[];
-  imageUrl: string;
-  /** Reglas angulares para la evaluación automática de la postura (Feature 3/4/5) */
-  jointRules?: IJointAngleRule[];
+export interface IAsana extends Omit<IDomainAsana, 'bodyZones' | 'referenceImageUrl' | 'jointRules'> {
+  bodyZones?: BodyZone[];
+  jointRules?: IDomainAsana['jointRules'];
+  referenceImageUrl?: string;
+  /** @deprecated Usar bodyZones del dominio */
+  category?: string;
+  /** @deprecated La descripción está en el dominio */
+  alignmentPoints?: string[];
+  /** @deprecated La descripción está en el dominio */
+  benefits?: string[];
 }
 
 export interface IAlignmentMetric {

@@ -140,7 +140,7 @@ export function AnalysisView() {
             </span>
           </div>
           <h1 className="font-headline-xl" style={{ fontSize: '32px', color: 'var(--color-on-background)', marginTop: '2px' }}>
-            Análisis de {activeAsana.spanishName} ({activeAsana.sanskritName})
+            Análisis de {activeAsana.nameEs} ({activeAsana.nameSanskrit})
           </h1>
         </div>
 
@@ -219,7 +219,7 @@ export function AnalysisView() {
             </div>
 
             <div style={{ height: '180px', borderRadius: 'var(--radius-lg)', overflow: 'hidden', marginBottom: '12px' }}>
-              <img src={new URL(`../assets/poses/${activeAsana.imageUrl}`, import.meta.url).toString()} alt={activeAsana.spanishName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={new URL(`../assets/poses/${activeAsana.referenceImageUrl}`, import.meta.url).toString()} alt={activeAsana.nameEs} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             </div>
 
             <p className="font-body-md" style={{ fontSize: '14px', color: 'var(--color-on-surface-variant)' }}>

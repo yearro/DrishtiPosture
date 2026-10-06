@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 import { AppContextProvider, useAppContext } from './context/AppContext';
 import { Header } from './components/ui/Header';
 import { Footer } from './components/ui/Footer';
@@ -12,32 +12,34 @@ const AnalysisView = lazy(() =>
   import('./views/AnalysisView').then((m) => ({ default: m.AnalysisView }))
 );
 
-const AppLoadingScreen: React.FC = () => (
-  <div
-    style={{
-      width: '100%',
-      minHeight: 'calc(100vh - 80px)',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '16px',
-      color: 'var(--color-on-background)'
-    }}
-  >
-    <span
-      className="material-symbols-outlined animate-spin"
-      style={{ fontSize: '40px', color: 'var(--color-primary)' }}
+function AppLoadingScreen() {
+  return (
+    <div
+      style={{
+        width: '100%',
+        minHeight: 'calc(100vh - 80px)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '16px',
+        color: 'var(--color-on-background)'
+      }}
     >
-      spa
-    </span>
-    <span className="font-label-md" style={{ color: 'var(--color-on-surface-variant)' }}>
-      Cargando espacio DrishtiPosture...
-    </span>
-  </div>
-);
+      <span
+        className="material-symbols-outlined animate-spin"
+        style={{ fontSize: '40px', color: 'var(--color-primary)' }}
+      >
+        spa
+      </span>
+      <span className="font-label-md" style={{ color: 'var(--color-on-surface-variant)' }}>
+        Cargando espacio DrishtiPosture...
+      </span>
+    </div>
+  );
+}
 
-const MainContent: React.FC = () => {
+function MainContent() {
   const { state } = useAppContext();
 
   return (

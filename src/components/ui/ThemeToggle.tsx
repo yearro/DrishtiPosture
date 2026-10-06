@@ -1,7 +1,6 @@
-import React from 'react';
 import { useAppContext } from '../../context/AppContext';
 
-export const ThemeToggle: React.FC = () => {
+export function ThemeToggle() {
   const { state, toggleTheme } = useAppContext();
   const isLight = state.theme === 'light';
 

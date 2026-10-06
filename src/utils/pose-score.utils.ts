@@ -19,7 +19,8 @@ function statusToAlignmentStatus(status: 'correct' | 'warning' | 'incorrect' | '
 
 /**
  * Calcula un score de 0-100 para una métrica a partir del delta y el warningThreshold.
- * - correct / invisible: score fijo (100 / 0)
+ * - correct: score fijo 100
+ * - invisible: score fijo 0
  * - warning: score decrece linealmente desde 100 hasta 60
  * - incorrect: score decrece linealmente desde 60 hasta 0
  */
@@ -31,12 +32,10 @@ function computeMetricScore(result: IJointAngleResult): number {
   const deltaAbs = Math.abs(result.delta ?? 0);
 
   if (result.status === 'warning') {
-    // De 100 (delta=0) a 60 (delta=threshold)
     const ratio = Math.min(deltaAbs / threshold, 1);
     return Math.round(100 - ratio * 40);
   }
 
-  // incorrect: de 60 (delta=threshold) a 0 (delta=2*threshold o más)
   const ratio = Math.min((deltaAbs - threshold) / threshold, 1);
   return Math.round(60 - ratio * 60);
 }
@@ -61,19 +60,22 @@ export function jointResultsToMetrics(jointResults: IJointAngleResult[]): IAlign
         score,
         status: statusToAlignmentStatus(result.status),
         detail: result.feedbackMessage ?? (result.status === 'correct' ? 'Alineación correcta' : 'Fuera de rango'),
+        weight: result.rule.weight,
       };
     })
     .sort((a, b) => a.score - b.score);
 }
 
 /**
- * Calcula el score global de postura (0-100) como promedio ponderado de las métricas.
+ * Calcula el score global de postura (0-100) como promedio ponderado de las métricas
+ * usando los pesos definidos en cada IJointAngleRule.
  * Si no hay métricas, retorna 0.
  */
-export function calculateOverallPoseScore(metrics: IAlignmentMetric[]): number {
+export function calculateOverallPoseScore(metrics: (IAlignmentMetric & { weight?: number })[]): number {
   if (!metrics || metrics.length === 0) return 0;
-  const total = metrics.reduce((sum, m) => sum + m.score, 0);
-  return Math.round(total / metrics.length);
+  const totalWeight = metrics.reduce((sum, m) => sum + (m.weight ?? 1), 0);
+  const weightedSum = metrics.reduce((sum, m) => sum + m.score * (m.weight ?? 1), 0);
+  return Math.round(weightedSum / totalWeight);
 }
 
 /**

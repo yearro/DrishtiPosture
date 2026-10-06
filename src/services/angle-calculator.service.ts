@@ -62,9 +62,9 @@ export function calculateJointAngles(
     // Calcular el ángulo en grados usando geometría vectorial 2D
     const measuredAngle = calculateAngle(lmA, lmB, lmC);
 
-    let status: JointStatus = 'correct';
-    let delta: number = 0;
-    let feedbackMessage: string | null = null;
+    let status: JointStatus;
+    let delta: number;
+    let feedbackMessage: string | null;
 
     if (measuredAngle >= rule.idealAngleMin && measuredAngle <= rule.idealAngleMax) {
       status = 'correct';
