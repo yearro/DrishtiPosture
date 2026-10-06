@@ -121,6 +121,36 @@ export function AnalysisView() {
     dispatch({ type: 'SET_NO_PERSON_DETECTED', payload: !state.noPersonDetected });
   };
 
+  // Detección automática de ausencia de persona: si poseScore < 0.5 por más de 1s
+  const noPersonTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    const poseScore = lastPoseFrame?.poseScore ?? 0;
+
+    if (poseScore < 0.5 && detectorState === 'ready') {
+      if (!noPersonTimerRef.current) {
+        noPersonTimerRef.current = setTimeout(() => {
+          dispatch({ type: 'SET_NO_PERSON_DETECTED', payload: true });
+        }, 1000);
+      }
+    } else {
+      if (noPersonTimerRef.current) {
+        clearTimeout(noPersonTimerRef.current);
+        noPersonTimerRef.current = null;
+      }
+      if (state.noPersonDetected) {
+        dispatch({ type: 'SET_NO_PERSON_DETECTED', payload: false });
+      }
+    }
+
+    return () => {
+      if (noPersonTimerRef.current) {
+        clearTimeout(noPersonTimerRef.current);
+        noPersonTimerRef.current = null;
+      }
+    };
+  }, [lastPoseFrame?.poseScore, detectorState, state.noPersonDetected, dispatch]);
+
   return (
     <main
       className="animate-fade-in"
