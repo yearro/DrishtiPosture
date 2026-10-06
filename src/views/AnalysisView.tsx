@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useAppContext } from '../context/AppContext';
 import { NoPersonDetectedBanner } from '../components/ui/NoPersonDetectedBanner';
 import { ModelLoadingIndicator } from '../components/pose/ModelLoadingIndicator';
@@ -15,8 +15,14 @@ import { CameraView } from '../components/camera/CameraView';
 import { CameraControls } from '../components/camera/CameraControls';
 import { CameraErrorBanner } from '../components/camera/CameraErrorBanner';
 
+const PERFECT_POSE_DURATION_MS = 1500;
+
 export function AnalysisView() {
   const { state, setView, dispatch } = useAppContext();
+  const [showSuccess, setShowSuccess] = useState(false);
+  const showSuccessRef = useRef(false);
+  const correctStartRef = useRef<number | null>(null);
+  const successTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const {
     cameraState,
     stream,
@@ -55,6 +61,46 @@ export function AnalysisView() {
       dispatch({ type: 'SET_LIVE_FEEDBACK', payload: topFeedback });
     }
   }, [jointResults, dispatch]);
+
+  // Temporizador de postura perfecta: animación de éxito tras 1.5s sostenidos
+  useEffect(() => {
+    const isAllCorrect = jointResults.length > 0
+      && jointResults.every((r) => r.status === 'correct' || r.status === 'invisible')
+      && jointResults.some((r) => r.status === 'correct');
+
+    if (isAllCorrect) {
+      if (correctStartRef.current === null) {
+        correctStartRef.current = performance.now();
+      }
+
+      const elapsed = performance.now() - correctStartRef.current;
+      const remaining = PERFECT_POSE_DURATION_MS - elapsed;
+
+      if (remaining <= 0 && !showSuccessRef.current) {
+        showSuccessRef.current = true;
+        setShowSuccess(true);
+        correctStartRef.current = null;
+        successTimerRef.current = setTimeout(() => {
+          showSuccessRef.current = false;
+          setShowSuccess(false);
+        }, 2500);
+      }
+    } else if (showSuccessRef.current) {
+      // Reset solo si ya estaba en éxito — evitar setState innecesario
+      showSuccessRef.current = false;
+      setShowSuccess(false);
+      correctStartRef.current = null;
+    } else {
+      correctStartRef.current = null;
+    }
+
+    return () => {
+      if (successTimerRef.current) {
+        clearTimeout(successTimerRef.current);
+        successTimerRef.current = null;
+      }
+    };
+  }, [jointResults]);
 
   // Inicializar el detector de pose MediaPipe cuando la cámara esté activa
   useEffect(() => {
@@ -335,6 +381,8 @@ export function AnalysisView() {
               stream={stream}
               mirrorMode={mirrorMode}
               onFrameReady={handleFrameReady}
+              landmarks={lastPoseFrame?.landmarks}
+              jointResults={jointResults}
             />
           </div>
 
@@ -347,6 +395,41 @@ export function AnalysisView() {
           />
         </div>
       </div>
+    {showSuccess && (
+        <div
+          role="status"
+          aria-live="polite"
+          style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 100,
+            padding: '32px 48px',
+            borderRadius: 'var(--radius-xl)',
+            backgroundColor: 'rgba(34, 197, 94, 0.95)',
+            color: '#ffffff',
+            boxShadow: '0 20px 60px rgba(34, 197, 94, 0.4)',
+            textAlign: 'center',
+            animation: 'fadeIn 0.5s ease forwards',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            gap: '12px'
+          }}
+        >
+          <span className="material-symbols-outlined" style={{ fontSize: '48px' }}>
+            verified
+          </span>
+          <h2 className="font-headline-md" style={{ color: '#ffffff', margin: 0 }}>
+            ¡Postura perfecta!
+          </h2>
+          <p className="font-body-md" style={{ color: 'rgba(255,255,255,0.9)', margin: 0 }}>
+            Todas las articulaciones están correctamente alineadas
+          </p>
+        </div>
+      )}
+
     </main>
   );
 }
