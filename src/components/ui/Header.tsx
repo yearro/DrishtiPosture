@@ -52,10 +52,10 @@ export function Header({ className }: HeaderProps) {
         </a>
         <a
           href="#"
-          className="header-nav-link"
-          onClick={(e) => handleNavClick(e, 'welcome')}
+          className={`header-nav-link ${state.view === 'workout' ? 'active' : ''}`}
+          onClick={(e) => handleNavClick(e, 'workout')}
         >
-          Perfil
+          Entrenamiento
         </a>
       </nav>
 

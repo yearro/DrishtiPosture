@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer, useEffect, type ReactNode } from 'react';
-import type { AppState, AppAction, ThemeMode, AppView, IAsana } from '../types/app.types';
+import type { AppState, AppAction, ThemeMode, AppView, IAsana, IWorkoutEntry } from '../types/app.types';
 import { ASANA_CATALOG } from '../data/asanaData';
 
 const LOCAL_STORAGE_THEME_KEY = 'drishti:theme';
@@ -26,7 +26,11 @@ const initialState: AppState = {
     { name: 'Extensión Espinal', score: 94, status: 'optimal', detail: 'Alineación vertebral recomendada' },
     { name: 'Distribución de Peso', score: 88, status: 'optimal', detail: 'Peso nivelado en el pie de apoyo' },
     { name: 'Nivel de Caderas', score: 72, status: 'warning', detail: 'Desciende ligeramente la cadera izquierda' }
-  ]
+  ],
+  workout: {
+    entries: [],
+    currentIndex: 0,
+  },
 };
 
 function appReducer(state: AppState, action: AppAction): AppState {
@@ -58,6 +62,36 @@ function appReducer(state: AppState, action: AppAction): AppState {
     case 'UPDATE_METRICS':
       return { ...state, metrics: action.payload };
 
+    case 'ADD_TO_WORKOUT':
+      return {
+        ...state,
+        workout: {
+          ...state.workout,
+          entries: [...state.workout.entries, action.payload],
+        },
+      };
+
+    case 'REMOVE_FROM_WORKOUT':
+      return {
+        ...state,
+        workout: {
+          entries: state.workout.entries.filter((_, i) => i !== action.payload),
+          currentIndex: Math.min(state.workout.currentIndex, state.workout.entries.length - 2),
+        },
+      };
+
+    case 'SET_WORKOUT_INDEX':
+      return {
+        ...state,
+        workout: { ...state.workout, currentIndex: action.payload },
+      };
+
+    case 'CLEAR_WORKOUT':
+      return {
+        ...state,
+        workout: { entries: [], currentIndex: 0 },
+      };
+
     default:
       return state;
   }
@@ -70,6 +104,10 @@ interface AppContextValue {
   toggleTheme: () => void;
   selectAsana: (asana: IAsana) => void;
   setScanning: (isScanning: boolean) => void;
+  addToWorkout: (entry: IWorkoutEntry) => void;
+  removeFromWorkout: (index: number) => void;
+  setWorkoutIndex: (index: number) => void;
+  clearWorkout: () => void;
 }
 
 const AppContext = createContext<AppContextValue | undefined>(undefined);
@@ -87,9 +125,13 @@ export const AppContextProvider: React.FC<{ children: ReactNode }> = ({ children
   const toggleTheme = () => dispatch({ type: 'TOGGLE_THEME' });
   const selectAsana = (asana: IAsana) => dispatch({ type: 'SELECT_ASANA', payload: asana });
   const setScanning = (isScanning: boolean) => dispatch({ type: 'SET_SCANNING', payload: isScanning });
+  const addToWorkout = (entry: IWorkoutEntry) => dispatch({ type: 'ADD_TO_WORKOUT', payload: entry });
+  const removeFromWorkout = (index: number) => dispatch({ type: 'REMOVE_FROM_WORKOUT', payload: index });
+  const setWorkoutIndex = (index: number) => dispatch({ type: 'SET_WORKOUT_INDEX', payload: index });
+  const clearWorkout = () => dispatch({ type: 'CLEAR_WORKOUT' });
 
   return (
-    <AppContext.Provider value={{ state, dispatch, setView, toggleTheme, selectAsana, setScanning }}>
+    <AppContext.Provider value={{ state, dispatch, setView, toggleTheme, selectAsana, setScanning, addToWorkout, removeFromWorkout, setWorkoutIndex, clearWorkout }}>
       {children}
     </AppContext.Provider>
   );

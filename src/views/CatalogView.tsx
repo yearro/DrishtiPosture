@@ -5,7 +5,9 @@ import type { IAsana } from '../types/app.types';
 import styles from './CatalogView.module.css';
 
 export function CatalogView() {
-  const { state, selectAsana, setView } = useAppContext();
+  const { state, selectAsana, setView, addToWorkout } = useAppContext();
+
+  const activeAsana = state.activeAsana ?? null;
 
   const handleSelectAsana = (asana: IAsana) => {
     selectAsana(asana);
@@ -15,7 +17,15 @@ export function CatalogView() {
     setView('analysis');
   };
 
-  const activeAsana = state.activeAsana ?? null;
+  const handleAddToWorkout = () => {
+    if (activeAsana) {
+      addToWorkout({ asanaId: activeAsana.id, nameEs: activeAsana.nameEs });
+    }
+  };
+
+  const isInWorkout = activeAsana
+    ? state.workout.entries.some((e) => e.asanaId === activeAsana.id)
+    : false;
 
   return (
     <main className={`animate-fade-in ${styles.page}`}>
@@ -44,20 +54,52 @@ export function CatalogView() {
           <AsanaReferencePanel asana={activeAsana} />
 
           {activeAsana && (
-            <button
-              type="button"
-              onClick={handleStartAnalysis}
-              className={styles.startButton}
-            >
-              <span
-                className="material-symbols-outlined"
-                style={{ fontSize: '22px' }}
-                aria-hidden="true"
+            <>
+              <button
+                type="button"
+                onClick={handleStartAnalysis}
+                className={styles.startButton}
               >
-                center_focus_strong
-              </span>
-              <span>Iniciar Análisis en Vivo</span>
-            </button>
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: '22px' }}
+                  aria-hidden="true"
+                >
+                  center_focus_strong
+                </span>
+                <span>Iniciar Análisis en Vivo</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={handleAddToWorkout}
+                disabled={isInWorkout}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  padding: '14px 24px',
+                  borderRadius: 'var(--radius-full)',
+                  backgroundColor: isInWorkout ? 'var(--color-surface-container)' : 'var(--color-secondary-container)',
+                  border: '1px solid var(--color-outline-variant)',
+                  color: isInWorkout ? 'var(--color-on-surface-variant)' : 'var(--color-on-secondary-container)',
+                  fontSize: 'var(--font-size-label-md)',
+                  fontWeight: 600,
+                  cursor: isInWorkout ? 'default' : 'pointer',
+                  width: '100%',
+                  justifyContent: 'center',
+                }}
+              >
+                <span
+                  className="material-symbols-outlined"
+                  style={{ fontSize: '22px' }}
+                  aria-hidden="true"
+                >
+                  {isInWorkout ? 'check_circle' : 'add_circle'}
+                </span>
+                <span>{isInWorkout ? 'Agregada al entrenamiento' : 'Añadir al entrenamiento'}</span>
+              </button>
+            </>
           )}
         </div>
       </div>

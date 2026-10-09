@@ -11,6 +11,9 @@ const CatalogView = lazy(() =>
 const AnalysisView = lazy(() =>
   import('./views/AnalysisView').then((m) => ({ default: m.AnalysisView }))
 );
+const WorkoutView = lazy(() =>
+  import('./views/WorkoutView').then((m) => ({ default: m.WorkoutView }))
+);
 
 function AppLoadingScreen() {
   return (
@@ -49,6 +52,7 @@ function MainContent() {
         {state.view === 'welcome' && <WelcomeView />}
         {state.view === 'catalog' && <CatalogView />}
         {state.view === 'analysis' && <AnalysisView />}
+        {state.view === 'workout' && <WorkoutView />}
       </Suspense>
       <Footer />
     </div>

@@ -1,4 +1,4 @@
-export type AppView = 'welcome' | 'catalog' | 'analysis';
+export type AppView = 'welcome' | 'catalog' | 'analysis' | 'workout';
 
 export type ThemeMode = 'dark' | 'light';
 
@@ -25,6 +25,16 @@ export interface IAlignmentMetric {
   detail: string;
 }
 
+export interface IWorkoutEntry {
+  asanaId: string;
+  nameEs: string;
+}
+
+export interface IWorkoutSession {
+  entries: IWorkoutEntry[];
+  currentIndex: number;
+}
+
 export interface AppState {
   view: AppView;
   theme: ThemeMode;
@@ -34,6 +44,7 @@ export interface AppState {
   noPersonDetected: boolean;
   liveFeedback: string | null;
   metrics: IAlignmentMetric[];
+  workout: IWorkoutSession;
 }
 
 export type AppAction =
@@ -45,4 +56,8 @@ export type AppAction =
   | { type: 'SET_SCANNING'; payload: boolean }
   | { type: 'SET_NO_PERSON_DETECTED'; payload: boolean }
   | { type: 'SET_LIVE_FEEDBACK'; payload: string | null }
-  | { type: 'UPDATE_METRICS'; payload: IAlignmentMetric[] };
+  | { type: 'UPDATE_METRICS'; payload: IAlignmentMetric[] }
+  | { type: 'ADD_TO_WORKOUT'; payload: IWorkoutEntry }
+  | { type: 'REMOVE_FROM_WORKOUT'; payload: number }
+  | { type: 'SET_WORKOUT_INDEX'; payload: number }
+  | { type: 'CLEAR_WORKOUT' };
